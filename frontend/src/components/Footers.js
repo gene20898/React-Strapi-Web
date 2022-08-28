@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 
 import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { useTheme } from '@material-ui/core/styles';
@@ -72,14 +71,15 @@ export default function Component(props) {
 <footer style={{backgroundColor: theme.palette.primary.main, color:theme.palette.common.white}}>
   <Container maxWidth="lg">
     <Box pt={6} pb={2} display="flex" flexWrap="wrap" alignItems="center" className={classes.rootBox}>
-      <Link href="#" color="inherit" underline="none">
+      <Link href="/" color="inherit" underline="none">
         <img style={{filter: 'invert(99%) sepia(98%) saturate(3978%) hue-rotate(189deg) brightness(120%) contrast(99%)'}} src="https://www.nicepng.com/png/full/221-2219473_imperial-machine-logo-machine-company-logo.png" alt="" width="150" />
       </Link>
       <Box component="nav" ml="auto" className={classes.footerNav}>
-        <Link href="#" variant="body1"  className={classes.footerLink}>First Link</Link>
-        <Link href="#" variant="body1"  className={classes.footerLink}>Second Link</Link>
-        <Link href="#" variant="body1"  className={classes.footerLink}>Third Link</Link>
-        <Link href="#" variant="body1"  className={classes.footerLink}>Fourth Link</Link>
+        <Link href="/about" variant="body1"  className={classes.footerLink}>About</Link>
+        <Link href="/business" variant="body1"  className={classes.footerLink}>Business</Link>
+        <Link href="/product" variant="body1"  className={classes.footerLink}>Product</Link>
+        <Link href="/news" variant="body1"  className={classes.footerLink}>News</Link>
+        <Link href="/contact" variant="body1"  className={classes.footerLink}>Contact</Link>
       </Box>
     </Box>
     <Box pt={1} pb={6} display="flex" flexWrap="wrap" alignItems="center" className={classes.footerCopy}>
@@ -88,8 +88,8 @@ export default function Component(props) {
         <IconButton color="inherit" aria-label="Facebook">
           <FacebookIcon />
         </IconButton>
-        <IconButton color="inherit" aria-label="Twitter">
-          <TwitterIcon />
+        <IconButton color="inherit" aria-label="Line">
+          <img src="LINE_logo.svg"/>
         </IconButton>
         <IconButton color="inherit" aria-label="Instagram">
           <InstagramIcon />

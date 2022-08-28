@@ -23,10 +23,10 @@ function App() {
           <Route exact path="/">
             <IndexPage />
           </Route>
-          <Route exact path="/About">
+          <Route exact path="/about">
             <AboutPage />
           </Route>
-          <Route exact path="/ourbusiness">
+          <Route exact path="/business">
             <OurBusinessPage />
           </Route>
           <Route exact path="/news">

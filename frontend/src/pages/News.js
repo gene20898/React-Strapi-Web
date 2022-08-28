@@ -14,6 +14,8 @@ export default function News() {
       <Banner />
 
       <BlogList />
+      <BlogList />
+      <BlogList />
 
       <Footers/>
     </React.Fragment>

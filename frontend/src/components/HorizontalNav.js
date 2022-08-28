@@ -85,20 +85,23 @@ export default function Component(props) {
   return (
 <AppBar position="static" color="primary">
   <Toolbar className={classes.toolbar}>
-    <Link href="#" color="primary" underline="none" variant="h5" className={classes.brand}>
+    <Link href="/" color="primary" underline="none" variant="h5" className={classes.brand}>
       <img src="https://www.nicepng.com/png/full/221-2219473_imperial-machine-logo-machine-company-logo.png"  alt="" width="150" style={{filter: 'invert(99%) sepia(98%) saturate(3978%) hue-rotate(189deg) brightness(120%) contrast(99%)'}}/>
     </Link>
-    <Link href="#" color='inherit' className={classes.link}> 
-      Section One
+    <Link href="/about" color='inherit' className={classes.link}> 
+      About
     </Link>
-    <Link href="#" color='inherit' variant="body2" className={classes.link}>
-      Section Two
+    <Link href="/business" color='inherit' variant="body2" className={classes.link}>
+      Business
     </Link>
-    <Link href="#" color='inherit' variant="body2" className={classes.link}>
-      Section Three
+    <Link href="/product" color='inherit' variant="body2" className={classes.link}>
+      Product
     </Link>
-    <Link href="#" color='inherit' variant="body2" className={classes.link}>
-      Section Four
+    <Link href="/news" color='inherit' variant="body2" className={classes.link}>
+      News
+    </Link>
+    <Link href="/contact" color='inherit' variant="body2" className={classes.link}>
+      Contact
     </Link>
     <Link href="#" color='inherit' className={classes.language}>
       <Typography variant="button" component="span">TH</Typography>/EN</Link> 
