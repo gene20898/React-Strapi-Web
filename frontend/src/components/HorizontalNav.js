@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import { emphasize, fade, darken, lighten } from '@material-ui/core/styles/colorManipulator';
 
@@ -6,7 +8,7 @@ import clsx from 'clsx';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Link from '@material-ui/core/Link';
+import { Link as MUILink } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Drawer from '@material-ui/core/Drawer';
@@ -85,26 +87,27 @@ export default function Component(props) {
   return (
 <AppBar position="static" color="primary">
   <Toolbar className={classes.toolbar}>
-    <Link href="/" color="primary" underline="none" variant="h5" className={classes.brand}>
+    <MUILink component={Link} to="/" color="primary" underline="none" variant="h5" className={classes.brand}>
       <img src="https://www.nicepng.com/png/full/221-2219473_imperial-machine-logo-machine-company-logo.png"  alt="" width="150" style={{filter: 'invert(99%) sepia(98%) saturate(3978%) hue-rotate(189deg) brightness(120%) contrast(99%)'}}/>
-    </Link>
-    <Link href="/about" color='inherit' className={classes.link}> 
+    </MUILink>
+    <MUILink component={Link} to="/about" color='inherit' className={classes.link}> 
       About
-    </Link>
-    <Link href="/business" color='inherit' variant="body2" className={classes.link}>
+    </MUILink>
+    <MUILink component={Link} to="/business" color='inherit' variant="body2" className={classes.link}>
       Business
-    </Link>
-    <Link href="/product" color='inherit' variant="body2" className={classes.link}>
+    </MUILink>
+    <MUILink component={Link} to="/product" color='inherit' variant="body2" className={classes.link}>
       Product
-    </Link>
-    <Link href="/news" color='inherit' variant="body2" className={classes.link}>
+    </MUILink>
+    <MUILink component={Link} to="/news" color='inherit' variant="body2" className={classes.link}>
       News
-    </Link>
-    <Link href="/contact" color='inherit' variant="body2" className={classes.link}>
+    </MUILink>
+    <MUILink component={Link} to="/contact" color='inherit' variant="body2" className={classes.link}>
       Contact
-    </Link>
-    <Link href="#" color='inherit' className={classes.language}>
-      <Typography variant="button" component="span">TH</Typography>/EN</Link> 
+    </MUILink>
+    <MUILink component={Link} to="#" color='inherit' className={classes.language}>
+      <Typography variant="button" component="span">TH</Typography>/EN
+    </MUILink> 
     <Button variant="contained" color="secondary" className={classes.primaryAction}>Action</Button>
     <IconButton edge="start" color="inherit" aria-label="menu" className={classes.menuButton} onClick={toggleDrawer(true)}>
       <MenuIcon />
