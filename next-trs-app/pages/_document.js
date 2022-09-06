@@ -1,15 +1,16 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import Document, {
-  Html, Main, NextScript, Head
-} from 'next/document';
+import Document, { Html, Main, NextScript, Head } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
+import theme from '@styles/theme';
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <meta name="theme-color" content={theme.palette.primary.main} />
+        </Head>
         <body>
           <Main />
           <NextScript />

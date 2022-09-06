@@ -1,14 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { emphasize, fade, darken, lighten } from '@material-ui/core/styles/colorManipulator';
-
-import clsx from 'clsx';
 
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { useTheme } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -44,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Component(props) {
   const classes = useStyles();
-  const theme = useTheme();
   return (
 <section className={classes.section} style={{ backgroundImage: 'url("nereus-assets/img/bg/pattern2.png")' }}>
   <Container maxWidth="md">

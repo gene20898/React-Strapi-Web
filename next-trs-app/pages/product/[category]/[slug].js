@@ -1,9 +1,9 @@
 import React from 'react';
 
-import HorizontalNav from '../components/HorizontalNav';
-import Banner from '../components/Banner';
-import ProductDetail from '../collections/products/ProductDetail';
-import Footers from '../components/Footers';
+import HorizontalNav from '@components/HorizontalNav';
+import Banner from '@components/Banner';
+import ProductDetail from '@components/products/ProductDetail';
+import Footers from '@components/Footers';
 
 const meta = {};
 

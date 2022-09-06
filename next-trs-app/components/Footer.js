@@ -1,9 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
-import { emphasize, fade, darken, lighten } from '@material-ui/core/styles/colorManipulator';
-
-import clsx from 'clsx';
 
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
@@ -72,15 +69,37 @@ export default function Component(props) {
 <footer style={{backgroundColor: theme.palette.primary.main, color:theme.palette.common.white}}>
   <Container maxWidth="lg">
     <Box pt={6} pb={2} display="flex" flexWrap="wrap" alignItems="center" className={classes.rootBox}>
-      <MUILink compoent={Link} to="/" color="inherit" underline="none">
-        <img style={{filter: 'invert(99%) sepia(98%) saturate(3978%) hue-rotate(189deg) brightness(120%) contrast(99%)'}} src="https://www.nicepng.com/png/full/221-2219473_imperial-machine-logo-machine-company-logo.png" alt="" width="150" />
-      </MUILink>
+      <Link href="/" passHref>
+        <MUILink color="inherit" underline="none">
+          <img style={{filter: 'invert(99%) sepia(98%) saturate(3978%) hue-rotate(189deg) brightness(120%) contrast(99%)'}} src="https://www.nicepng.com/png/full/221-2219473_imperial-machine-logo-machine-company-logo.png" alt="" width="150" />
+        </MUILink>
+      </Link>
       <Box component="nav" ml="auto" className={classes.footerNav}>
-        <MUILink component={Link} to="/about" variant="body1"  className={classes.footerLink}>About</MUILink>
-        <MUILink component={Link} to="/business" variant="body1"  className={classes.footerLink}>Business</MUILink>
-        <MUILink component={Link} to="/product" variant="body1"  className={classes.footerLink}>Product</MUILink>
-        <MUILink component={Link} to="/news" variant="body1"  className={classes.footerLink}>News</MUILink>
-        <MUILink component={Link} to="/contact" variant="body1"  className={classes.footerLink}>Contact</MUILink>
+        <Link href="/about" passHref>
+          <MUILink variant="body1"  className={classes.footerLink}>
+            About
+          </MUILink>
+        </Link>
+        <Link href="/business" passHref>
+          <MUILink variant="body1"  className={classes.footerLink}>
+            Business
+          </MUILink>
+        </Link>
+        <Link href="/product" passHref>
+          <MUILink variant="body1"  className={classes.footerLink}>
+            Product
+          </MUILink>
+        </Link>
+        <Link href="/news" passHref>
+          <MUILink variant="body1"  className={classes.footerLink}>
+            News
+          </MUILink>
+        </Link>
+        <Link href="/contact" passHref>
+          <MUILink  variant="body1"  className={classes.footerLink}>
+            Contact
+          </MUILink>
+        </Link>  
       </Box>
     </Box>
     <Box pt={1} pb={6} display="flex" flexWrap="wrap" alignItems="center" className={classes.footerCopy}>
