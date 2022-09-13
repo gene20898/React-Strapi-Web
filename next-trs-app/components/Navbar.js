@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContext } from "react";
 import Link from 'next/link';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,6 +22,9 @@ import LayersIcon from '@material-ui/icons/Layers';
 import FilterHdrIcon from '@material-ui/icons/FilterHdr';
 import DirectionsBusIcon from '@material-ui/icons/DirectionsBus';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
+
+import { GlobalContext } from "@pages/_app";
+import { getStrapiMedia } from "@lib/media";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -68,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
 }
 ));
 
-export default function Component(props) {
+export default function Navbar(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({ open: false });
 
@@ -80,35 +84,37 @@ export default function Component(props) {
     setState({ ...state, open });
   };
 
+  const { logo, pageLinksText, actionButtonText } = useContext(GlobalContext);
+
   return (
 <AppBar position="static" color="primary">
   <Toolbar className={classes.toolbar}>
     <Link href="/" passHref>
-        <a className={classes.brand}><img  src="https://www.nicepng.com/png/full/221-2219473_imperial-machine-logo-machine-company-logo.png"  alt="" width="150" style={{filter: 'invert(99%) sepia(98%) saturate(3978%) hue-rotate(189deg) brightness(120%) contrast(99%)'}}/></a>
+        <a className={classes.brand}><img  src={getStrapiMedia(logo.logo)}  alt="" width="150" style={{filter: 'invert(99%) sepia(98%) saturate(3978%) hue-rotate(189deg) brightness(120%) contrast(99%)'}}/></a>
     </Link>
     <Link href="/about" passHref>
       <MUILink color='inherit' variant="body2" className={classes.link}> 
-        About
+        {pageLinksText.aboutPage}
       </MUILink>
     </Link>
     <Link href="/business" passHref>
       <MUILink color='inherit' variant="body2" className={classes.link}>
-        Business
+      {pageLinksText.businessPage}
       </MUILink>
     </Link>
     <Link href="/product" passHref>
       <MUILink  color='inherit' variant="body2" className={classes.link}>
-        Product
+      {pageLinksText.productPage}
       </MUILink>
     </Link>
     <Link href="/news" passHref>
       <MUILink color='inherit' variant="body2" className={classes.link}>
-        News
+      {pageLinksText.newsPage}
       </MUILink>
     </Link>
     <Link href="/contact" passHref>
       <MUILink color='inherit' variant="body2" className={classes.link}>
-        Contact
+      {pageLinksText.contactPage}
       </MUILink>
     </Link>
     <Link href="/#" passHref>
@@ -117,30 +123,7 @@ export default function Component(props) {
       </MUILink>
     </Link>
     
-    
-  
-    {/* <MUILink component={Link} href="home" color="primary" underline="none" variant="h5" className={classes.brand}>
-      <img src="https://www.nicepng.com/png/full/221-2219473_imperial-machine-logo-machine-company-logo.png"  alt="" width="150" style={{filter: 'invert(99%) sepia(98%) saturate(3978%) hue-rotate(189deg) brightness(120%) contrast(99%)'}}/>
-    </MUILink>
-    <MUILink component={Link} href="/about" color='inherit' className={classes.link}> 
-      About
-    </MUILink>
-    <MUILink component={Link} href="/business" color='inherit' variant="body2" className={classes.link}>
-      Business
-    </MUILink>
-    <MUILink component={Link} href="/product" color='inherit' variant="body2" className={classes.link}>
-      Product
-    </MUILink>
-    <MUILink component={Link} href="/news" color='inherit' variant="body2" className={classes.link}>
-      News
-    </MUILink>
-    <MUILink component={Link} href="/contact" color='inherit' variant="body2" className={classes.link}>
-      Contact
-    </MUILink>
-    <MUILink component={Link} href="#" color='inherit' className={classes.language}>
-      <Typography variant="button" component="span">TH</Typography>/EN
-    </MUILink>  */}
-    <Button variant="contained" color="secondary" className={classes.primaryAction}>Action</Button>
+    <Button variant="contained" color="secondary" className={classes.primaryAction}>{actionButtonText}</Button>
     <IconButton edge="start" color="inherit" aria-label="menu" className={classes.menuButton} onClick={toggleDrawer(true)}>
       <MenuIcon />
     </IconButton>

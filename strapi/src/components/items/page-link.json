@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_items_page_links",
+  "info": {
+    "displayName": "pageLink",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "aboutPage": {
+      "type": "string"
+    },
+    "businessPage": {
+      "type": "string"
+    },
+    "productPage": {
+      "type": "string"
+    },
+    "newsPage": {
+      "type": "string"
+    },
+    "contactPage": {
+      "type": "string"
+    }
+  }
+}

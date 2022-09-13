@@ -20,6 +20,7 @@ export const GlobalContext = createContext({});
 export default function MyApp(props) {
   const { Component, pageProps } = props;
   const { global } = pageProps;
+  const navbar = global;
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -64,6 +65,15 @@ MyApp.getInitialProps = async (ctx) => {
       defaultSeo: {
         populate: "*",
       },
+      logo: {
+        populate: "*",
+      },
+      pageLinksText: {
+        populate: "*",
+      },
+      socialMedia: {
+        populate: "*",
+      }
     },
   });
   // Pass the data to our page via props

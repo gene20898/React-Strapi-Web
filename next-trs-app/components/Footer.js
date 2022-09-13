@@ -103,7 +103,7 @@ export default function Component(props) {
       </Box>
     </Box>
     <Box pt={1} pb={6} display="flex" flexWrap="wrap" alignItems="center" className={classes.footerCopy}>
-      <Typography color="white" component="p" variant="caption" gutterBottom={false} className={classes.copy}>© 2020 Nereus. All rights reserved.</Typography>
+      <Typography component="p" variant="caption" gutterBottom={false} className={classes.copy}>© 2020 Nereus. All rights reserved.</Typography>
       <Box ml="auto" className={classes.icons}>
         <IconButton color="inherit" aria-label="Facebook">
           <FacebookIcon />

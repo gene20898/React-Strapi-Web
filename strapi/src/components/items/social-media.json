@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_items_social_medias",
+  "info": {
+    "displayName": "SocialMedia"
+  },
+  "options": {},
+  "attributes": {
+    "FacebookUrl": {
+      "type": "string",
+      "required": true
+    },
+    "lineUrl": {
+      "type": "string",
+      "required": true
+    },
+    "instragramUrl": {
+      "type": "string",
+      "required": true
+    },
+    "linkedInUrl": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

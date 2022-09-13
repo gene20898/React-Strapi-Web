@@ -49,7 +49,7 @@ export default function Component(props) {
         <Typography variant="h2" component="span">sit amet, consectetur adipiscing elit.</Typography>
       </Typography>
       <Container maxWidth="sm">
-        <Typography variant="subtitle1" color="common.white" paragraph={true} >Suspendisse aliquam tellus ante, porttitor mattis diam eleifend quis. Pellentesque pulvinar commodo eros sit amet finibus.</Typography>
+        <Typography variant="subtitle1" paragraph={true} >Suspendisse aliquam tellus ante, porttitor mattis diam eleifend quis. Pellentesque pulvinar commodo eros sit amet finibus.</Typography>
       </Container>
       <Box mt={3}>
         <Button variant="contained" color="secondary" className={classes.primaryAction}>CONTACT us</Button>

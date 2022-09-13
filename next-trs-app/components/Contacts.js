@@ -75,7 +75,7 @@ export default function Component(props) {
     <Box className={classes.box}>
       <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
-          <Box pt={10} pb={8} display="flex" className={[classes.halfLg, classes.firstBox]}>
+          <Box pt={10} pb={8} display="flex" className={`${classes.halfLg} ${classes.firstBox}`}>
             <Container>
               <Box mb={4}>
                 <Typography variant="h4" component="h2" gutterBottom={true}>Let's talk about the future</Typography>
@@ -96,7 +96,7 @@ export default function Component(props) {
                     <TextField variant="outlined" required fullWidth name="company" id="company" label="Company" autoComplete="company" />
                   </Grid>
                   <Grid item xs={12}>
-                    <TextField variant="outlined" required multiline rows={5} fullWidth autoComplete="message" name="message" id="message" label="Message" />
+                    <TextField variant="outlined" required multiline minRows={5} fullWidth autoComplete="message" name="message" id="message" label="Message" />
                   </Grid>
                   <Grid item xs={12}>
                     <FormControlLabel control={<Checkbox name="terms" value="1" color="secondary" />} label="I agree to the terms of use and privacy policy." />

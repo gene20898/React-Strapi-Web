@@ -14,7 +14,7 @@ import { useTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   section: {
-    backgroundImage: 'url("nereus-assets/img/bg/pattern2.png")',
+    backgroundImage: 'url("/nereus-assets/img/bg/pattern2.png")',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundColor: theme.palette.primary.dark,

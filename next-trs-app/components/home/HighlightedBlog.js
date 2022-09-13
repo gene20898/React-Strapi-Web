@@ -57,7 +57,7 @@ export default function Content(props) {
     <section>
       <Grid container>
         <Grid item xs={12} lg={6}>
-          <Box className={[classes.halfLg, classes.firstBox]}>
+          <Box className={`${classes.halfLg} ${classes.firstBox}`}>
             <Container>
               <Box mb={4}>
                 <Typography variant="h3" component="h2" paragraph={true}>

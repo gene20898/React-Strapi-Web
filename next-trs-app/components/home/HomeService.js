@@ -46,7 +46,7 @@ export default function Component(props) {
           <Grid item xs={12} sm={6} md={3}>
             <Box textAlign="center">
               <Box mb={2}>
-                <ApartmentIcon color="white" fontSize="large" />
+                <ApartmentIcon fontSize="large" />
               </Box>
               <Typography variant="subtitle1" className={classes.detail} component="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Typography>
             </Box>
@@ -54,7 +54,7 @@ export default function Component(props) {
           <Grid item xs={12} sm={6} md={3}>
             <Box textAlign="center">
               <Box mb={2}>
-                <DevicesOtherIcon color="white" fontSize="large" />
+                <DevicesOtherIcon fontSize="large" />
               </Box>
               <Typography variant="subtitle1" className={classes.detail} component="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Typography> 
             </Box>
@@ -62,7 +62,7 @@ export default function Component(props) {
           <Grid item xs={12} sm={6} md={3}>
             <Box textAlign="center">
               <Box mb={2}>
-                <FolderSharedIcon color="white" fontSize="large" />
+                <FolderSharedIcon fontSize="large" />
               </Box>
               <Typography variant="subtitle1" className={classes.detail} component="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Typography>
             </Box>
@@ -70,7 +70,7 @@ export default function Component(props) {
           <Grid item xs={12} sm={6} md={3}>
             <Box textAlign="center">
               <Box mb={2}>
-                <BusinessCenterIcon color="white" fontSize="large" />
+                <BusinessCenterIcon fontSize="large" />
               </Box>
               <Typography variant="subtitle1" className={classes.detail} component="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Typography>
             </Box>
