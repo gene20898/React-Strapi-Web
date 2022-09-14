@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_sections_home_banners",
+  "info": {
+    "displayName": "HomeBanner",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.banner-text"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "contactButton": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.button"
+    },
+    "actionButton": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.button"
+    },
+    "bannerImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    }
+  }
+}

@@ -35,7 +35,7 @@ export default function MyApp(props) {
       <Head>
         <link
           rel="shortcut icon"
-          href={getStrapiMedia(global.attributes.favicon)}
+          href={getStrapiMedia(global.attributes.favicon) || "/favicon.ico"}
         />
       </Head>
       <GlobalContext.Provider value={global.attributes}>

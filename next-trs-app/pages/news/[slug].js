@@ -9,8 +9,6 @@ export default function BlogPage() {
   return (
     <React.Fragment>
 
-      <Banner />
-
       <Blog content={null} />
 
     </React.Fragment>

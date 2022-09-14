@@ -33,9 +33,6 @@ export default function Blog(props) {
     'date': 'Jan 16, 2020',
     'header-p1': 'Donec lacinia',
     'header-p2': 'turpis non sapien lobortis pretium',
-    'avatar': 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80',
-    'name': 'Linda Williams',
-    'job': 'Founder and CEO',
     'paragraph1': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dictum lacus lorem, ut tincidunt massa accumsan at. Vestibulum libero mauris, facilisis ut nisl vel, dignissim feugiat mi. Curabitur dapibus tortor eu arcu volutpat, a pellentesque mauris auctor. Nunc vel magna felis. Praesent tristique viverra nibh porta ultricies. In iaculis faucibus sapien at tincidunt. Phasellus ut lacinia lorem. Nulla venenatis finibus tincidunt. Maecenas auctor augue odio, in accumsan sem molestie eget. Aliquam at lectus et lectus tempor luctus vel id est. Fusce vel vehicula urna. Donec pretium maximus aliquet. Aliquam felis nisl, tincidunt non lectus vitae, pulvinar iaculis justo.',
     'paragraph2': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dictum lacus lorem, ut tincidunt massa accumsan at. Vestibulum libero mauris, facilisis ut nisl vel, dignissim feugiat mi. Curabitur dapibus tortor eu arcu volutpat, a pellentesque mauris auctor. Nunc vel magna felis. Praesent tristique viverra nibh porta ultricies. In iaculis faucibus sapien at tincidunt. Phasellus ut lacinia lorem. Nulla venenatis finibus tincidunt. Maecenas auctor augue odio, in accumsan sem molestie eget. Aliquam at lectus et lectus tempor luctus vel id est. Fusce vel vehicula urna. Donec pretium maximus aliquet. Aliquam felis nisl, tincidunt non lectus vitae, pulvinar iaculis justo.',
     'paragraph3': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dictum lacus lorem, ut tincidunt massa accumsan at. Vestibulum libero mauris, facilisis ut nisl vel, dignissim feugiat mi. Curabitur dapibus tortor eu arcu volutpat, a pellentesque mauris auctor. Nunc vel magna felis. Praesent tristique viverra nibh porta ultricies. In iaculis faucibus sapien at tincidunt. Phasellus ut lacinia lorem. Nulla venenatis finibus tincidunt. Maecenas auctor augue odio, in accumsan sem molestie eget. Aliquam at lectus et lectus tempor luctus vel id est. Fusce vel vehicula urna. Donec pretium maximus aliquet. Aliquam felis nisl, tincidunt non lectus vitae, pulvinar iaculis justo.',
@@ -55,13 +52,6 @@ export default function Blog(props) {
                     <Typography variant="h3" component="span" color="primary">{content['header-p1']} </Typography>
                     <Typography variant="h3" component="span">{content['header-p2']}</Typography>
                   </Typography>
-                </Box>
-                <Box display="flex" justifyContent="center" alignItems="center">
-                  <Avatar alt="" src={content['avatar']} />
-                  <Box ml={2} textAlign="left">
-                    <Typography variant="subtitle1" component="h2" className={classes.name}>{content['name']}</Typography>
-                    <Typography variant="subtitle1" component="h3" color="textSecondary">{content['job']}</Typography>
-                  </Box>
                 </Box>
               </Container>
             </Box>
