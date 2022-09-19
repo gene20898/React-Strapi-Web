@@ -41,7 +41,7 @@ export default function Component(props) {
         <Typography color="secondary" variant="h3" component="span">Donec lacinia </Typography>
         <Typography variant="h3" component="span">turpis non sapien lobortis pretium</Typography>
       </Typography>
-      <Container maxWidth="sm" alignItems="center">
+      <Container maxWidth="sm">
         <Breadcrumbs aria-label="breadcrumb" className={classes.breadcrumb}>
           <Link underline="hover" color="inherit" href="/">
             Home
@@ -53,7 +53,7 @@ export default function Component(props) {
             >
             Product
           </Link>
-          <Typography color="text.primary">Category 1</Typography> 
+          <Typography>Category 1</Typography> 
         </Breadcrumbs>
       </Container>
     </Box>

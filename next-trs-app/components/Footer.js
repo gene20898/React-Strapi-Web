@@ -189,7 +189,7 @@ export default function Component(props) {
                   style={{ color: "inherit" }}
                 >
                   <IconButton color="inherit" aria-label="Line">
-                    <img src="LINE_logo.svg" />
+                    <img src="/LINE_logo.svg" />
                   </IconButton>
                 </a>
               </>

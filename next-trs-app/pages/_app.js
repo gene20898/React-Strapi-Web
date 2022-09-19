@@ -17,10 +17,9 @@ import Footer from '@components/Footer';
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
 
+
 export default function MyApp(props) {
-  const { Component, pageProps } = props;
-  const { global } = pageProps;
-  const navbar = global;
+  const { Component, pageProps, global } = props;
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -35,7 +34,7 @@ export default function MyApp(props) {
       <Head>
         <link
           rel="shortcut icon"
-          href={getStrapiMedia(global.attributes.favicon) || "/favicon.ico"}
+          href={getStrapiMedia(global?.attributes?.favicon) || "/favicon.ico"}
         />
       </Head>
       <GlobalContext.Provider value={global.attributes}>
@@ -76,11 +75,12 @@ MyApp.getInitialProps = async (ctx) => {
       }
     },
   });
+
   // Pass the data to our page via props
-  return { ...appProps, pageProps: { global: globalRes.data } };
+  return { ...appProps, global: globalRes.data,};
 };
 
-MyApp.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object.isRequired,
-};
+// MyApp.propTypes = {
+//   Component: PropTypes.elementType.isRequired,
+//   pageProps: PropTypes.object.isRequired,
+// };
