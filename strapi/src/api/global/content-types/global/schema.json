@@ -49,16 +49,6 @@
         }
       }
     },
-    "defaultSeo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.seo",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "logo": {
       "type": "component",
       "repeatable": false,
