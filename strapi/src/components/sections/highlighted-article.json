@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sections_highlighted_articles",
+  "info": {
+    "displayName": "highlightedArticle"
+  },
+  "options": {},
+  "attributes": {
+    "article": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
+    },
+    "ArticleLinkText": {
+      "type": "string",
+      "required": true,
+      "default": "LEARN MORE"
+    }
+  }
+}

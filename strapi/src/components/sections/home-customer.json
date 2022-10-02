@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_home_customers",
+  "info": {
+    "displayName": "homeCustomer"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "logo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.logo",
+      "required": true
+    }
+  }
+}

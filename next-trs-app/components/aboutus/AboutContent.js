@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { emphasize, fade, darken, lighten } from '@material-ui/core/styles/colorManipulator';
+import { emphasize, alpha, darken, lighten } from '@material-ui/core/styles/colorManipulator';
 
 import clsx from 'clsx';
 
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   emptyCard: {
     [theme.breakpoints.up('md')]: {
-      backgroundColor: fade(theme.palette.background.emphasis, 0.4),
+      backgroundColor: alpha(theme.palette.background.emphasis, 0.4),
       height: 64,
     }
   },

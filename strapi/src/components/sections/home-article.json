@@ -1,8 +1,19 @@
 {
   "collectionName": "components_sections_home_articles",
   "info": {
-    "displayName": "HomeArticle"
+    "displayName": "HomeArticle",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    },
+    "textLink": {
+      "type": "string",
+      "required": true
+    }
+  }
 }

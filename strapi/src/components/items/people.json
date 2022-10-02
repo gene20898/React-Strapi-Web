@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_items_people",
+  "info": {
+    "displayName": "People"
+  },
+  "options": {},
+  "attributes": {
+    "Avatar": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

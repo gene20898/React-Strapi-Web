@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sections_home_services",
+  "info": {
+    "displayName": "homeService"
+  },
+  "options": {},
+  "attributes": {
+    "description1": {
+      "type": "text",
+      "required": true
+    },
+    "description2": {
+      "type": "text",
+      "required": true
+    },
+    "description3": {
+      "type": "text",
+      "required": true
+    },
+    "description4": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

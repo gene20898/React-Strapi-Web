@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, fade } from '@material-ui/core/styles';
+import { makeStyles, alpha } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   iconWrapper: {
-    backgroundColor: fade(theme.palette.background.emphasis, .6),
+    backgroundColor: alpha(theme.palette.background.emphasis, .6),
   },
   videoBoxRoot: {
     maxWidth: 512,

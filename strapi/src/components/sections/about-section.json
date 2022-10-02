@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_sections_about_sections",
+  "info": {
+    "displayName": "aboutSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "videoUrl": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.video-url",
+      "required": true
+    },
+    "keyTopic1": {
+      "displayName": "keyTopic",
+      "type": "component",
+      "repeatable": false,
+      "component": "items.key-topic",
+      "required": true
+    },
+    "keyTopic2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "items.key-topic",
+      "required": true
+    },
+    "keyTopic3": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "items.key-topic"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_sections_about_teams",
+  "info": {
+    "displayName": "aboutTeam",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "teamMember": {
+      "displayName": "People",
+      "type": "component",
+      "repeatable": true,
+      "component": "items.people",
+      "required": true
+    }
+  }
+}
