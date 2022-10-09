@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "product_pages",
+  "collectionName": "business_pages",
   "info": {
-    "singularName": "product-page",
-    "pluralName": "product-pages",
-    "displayName": "ProductPage",
-    "description": ""
+    "singularName": "business-page",
+    "pluralName": "business-pages",
+    "displayName": "BusinessPage"
   },
   "options": {
     "draftAndPublish": true
@@ -16,24 +15,6 @@
     }
   },
   "attributes": {
-    "title": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
-    "description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
     "Banner": {
       "type": "component",
       "repeatable": false,
@@ -43,6 +24,29 @@
         }
       },
       "component": "items.banner",
+      "required": true
+    },
+    "Detail": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "sections.business-detail-section",
+      "required": true
+    },
+    "SlideShow": {
+      "displayName": "BusinessPorfolioSection",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "sections.business-porfolio-section",
       "required": true
     }
   }
