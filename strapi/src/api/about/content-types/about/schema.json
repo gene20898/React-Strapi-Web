@@ -50,6 +50,17 @@
       },
       "component": "sections.about-team",
       "required": true
+    },
+    "Banner": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "items.banner",
+      "required": true
     }
   }
 }

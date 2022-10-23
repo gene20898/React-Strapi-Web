@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_sections_business_porfolio_sections",
+  "info": {
+    "displayName": "BusinessPorfolioSection",
+    "icon": "backward"
+  },
+  "options": {},
+  "attributes": {
+    "Slideshow": {
+      "displayName": "Slideshow",
+      "type": "component",
+      "repeatable": true,
+      "component": "items.slideshow",
+      "required": true
+    }
+  }
+}

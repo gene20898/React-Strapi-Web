@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Banner from '@components/Banner';
-import ProductDetail from '@components/products/ProductDetail';
+import ProductDetail from '@collections/products/ProductDetail';
 
 const meta = {};
 

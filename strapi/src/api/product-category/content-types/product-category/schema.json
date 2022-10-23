@@ -1,10 +1,10 @@
 {
-  "kind": "singleType",
-  "collectionName": "product_pages",
+  "kind": "collectionType",
+  "collectionName": "product_categories",
   "info": {
-    "singularName": "product-page",
-    "pluralName": "product-pages",
-    "displayName": "ProductPage",
+    "singularName": "product-category",
+    "pluralName": "product-categories",
+    "displayName": "Product category",
     "description": ""
   },
   "options": {
@@ -31,8 +31,27 @@
           "localized": true
         }
       },
-      "type": "string",
-      "required": true
+      "type": "text",
+      "required": false
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "product_category"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
     "Banner": {
       "type": "component",
