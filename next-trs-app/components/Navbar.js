@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Navbar(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({ open: false });
-  const { logo, pageLinksText, actionButtonText } = useContext(GlobalContext);
+  const { logo, pageLinksText, actionButtonText } = useContext(GlobalContext) || {};
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -93,7 +93,7 @@ export default function Navbar(props) {
         <Link href="/" passHref>
           <a className={classes.brand}>
             <img
-              src={getStrapiMedia(logo.logo)}
+              src={getStrapiMedia(logo?.logo)}
               alt=""
               width="150"
               style={{
@@ -103,7 +103,7 @@ export default function Navbar(props) {
             />
           </a>
         </Link>
-        {pageLinksText.aboutPage && (
+        {pageLinksText?.aboutPage && (
           <>
             <Link href="/about" passHref>
               <MUILink color="inherit" variant="body2" className={classes.link}>
@@ -112,7 +112,7 @@ export default function Navbar(props) {
             </Link>
           </>
         )}
-        {pageLinksText.businessPage && (
+        {pageLinksText?.businessPage && (
           <>
             <Link href="/business" passHref>
               <MUILink color="inherit" variant="body2" className={classes.link}>
@@ -121,7 +121,7 @@ export default function Navbar(props) {
             </Link>
           </>
         )}
-        {pageLinksText.productPage && (
+        {pageLinksText?.productPage && (
           <>
             <Link href="/product" passHref>
               <MUILink color="inherit" variant="body2" className={classes.link}>
@@ -130,7 +130,7 @@ export default function Navbar(props) {
             </Link>
           </>
         )}
-        {pageLinksText.newsPage && (
+        {pageLinksText?.newsPage && (
           <>
             <Link href="/news" passHref>
               <MUILink color="inherit" variant="body2" className={classes.link}>
@@ -139,7 +139,7 @@ export default function Navbar(props) {
             </Link>
           </>
         )}
-        {pageLinksText.contactPage && (
+        {pageLinksText?.contactPage && (
           <>
             <Link href="/contact" passHref>
               <MUILink color="inherit" variant="body2" className={classes.link}>
@@ -200,17 +200,17 @@ export default function Navbar(props) {
                 onClick={toggleDrawer(false)}
                 onKeyDown={toggleDrawer(false)}
               >
-                <img src={getStrapiMedia(logo.logo)} alt="" width="110" />
+                <img src={getStrapiMedia(logo?.logo)} alt="" width="110" />
               </MUILink>
             </Link>
           </Box>
           <List>
-            {pageLinksText.aboutPage && (
+            {pageLinksText?.aboutPage && (
               <>
                 <Link href="/about" passHref>
                   <ListItem
                     button
-                    key={pageLinksText.aboutPage || "About"}
+                    key={pageLinksText.aboutPage}
                     onClick={toggleDrawer(false)}
                     onKeyDown={toggleDrawer(false)}
                   >
@@ -218,13 +218,13 @@ export default function Navbar(props) {
                       <LayersIcon className={classes.icon} />
                     </ListItemIcon>
                     <ListItemText
-                      primary={pageLinksText.aboutPage || "About"}
+                      primary={pageLinksText.aboutPage}
                     />
                   </ListItem>
                 </Link>
               </>
             )}
-            {pageLinksText.businessPage && (
+            {pageLinksText?.businessPage && (
               <>
                 <Link href="/business" passHref>
                   <ListItem
@@ -241,7 +241,7 @@ export default function Navbar(props) {
                 </Link>
               </>
             )}
-            {pageLinksText.productPage && (
+            {pageLinksText?.productPage && (
               <>
                 <Link href="/product" passHref>
                   <ListItem
@@ -258,7 +258,7 @@ export default function Navbar(props) {
                 </Link>
               </>
             )}
-            {pageLinksText.newsPage && (
+            {pageLinksText?.newsPage && (
               <>
                 <Link href="/news" passHref>
                   <ListItem
@@ -275,7 +275,7 @@ export default function Navbar(props) {
                 </Link>
               </>
             )}
-            {pageLinksText.contactPage && (
+            {pageLinksText?.contactPage && (
               <>
                 <Link href="/contact" passHref>
                   <ListItem

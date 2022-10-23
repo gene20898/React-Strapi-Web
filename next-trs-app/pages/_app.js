@@ -37,7 +37,7 @@ export default function MyApp(props) {
           href={getStrapiMedia(global?.attributes?.favicon) || "/favicon.ico"}
         />
       </Head>
-      <GlobalContext.Provider value={global.attributes}>
+      <GlobalContext.Provider value={global?.attributes}>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
@@ -58,27 +58,30 @@ MyApp.getInitialProps = async (ctx) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(ctx);
   // Fetch global site settings from Strapi
-  const globalRes = await fetchAPI("/global", {
-    populate: {
-      favicon: "*",
-      defaultSeo: {
-        populate: "*",
+  try{
+    const globalRes = await fetchAPI("/global", {
+      populate: {
+        favicon: "*",
+        defaultSeo: {
+          populate: "*",
+        },
+        logo: {
+          populate: "*",
+        },
+        pageLinksText: {
+          populate: "*",
+        },
+        socialMedia: {
+          populate: "*",
+        }
       },
-      logo: {
-        populate: "*",
-      },
-      pageLinksText: {
-        populate: "*",
-      },
-      socialMedia: {
-        populate: "*",
-      }
-    },
-  });
-
-  // Pass the data to our page via props
-  return { ...appProps, global: globalRes.data,};
-};
+    });
+    // Pass the data to our page via props
+    return { ...appProps, global: globalRes.data,};
+  } catch (err) {
+    return { ...appProps, global: null,};
+  }
+}
 
 // MyApp.propTypes = {
 //   Component: PropTypes.elementType.isRequired,

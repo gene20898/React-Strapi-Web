@@ -70,8 +70,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Component(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const { logo, pageLinksText, socialMedia, copyright } =
-    useContext(GlobalContext);
+  const { logo, pageLinksText, socialMedia, copyright } = useContext(GlobalContext) || {};
   return (
     <footer
       style={{
@@ -95,14 +94,14 @@ export default function Component(props) {
                   filter:
                     "invert(99%) sepia(98%) saturate(3978%) hue-rotate(189deg) brightness(120%) contrast(99%)",
                 }}
-                src={getStrapiMedia(logo.logo)}
+                src={getStrapiMedia(logo?.logo)}
                 alt=""
                 width="150"
               />
             </MUILink>
           </Link>
           <Box component="nav" ml="auto" className={classes.footerNav}>
-            {pageLinksText.aboutPage && (
+            {pageLinksText?.aboutPage && (
               <>
                 <Link href="/about" passHref>
                   <MUILink variant="body1" className={classes.footerLink}>
@@ -111,7 +110,7 @@ export default function Component(props) {
                 </Link>
               </>
             )}
-            {pageLinksText.businessPage && (
+            {pageLinksText?.businessPage && (
               <>
                 <Link href="/business" passHref>
                   <MUILink variant="body1" className={classes.footerLink}>
@@ -120,7 +119,7 @@ export default function Component(props) {
                 </Link>
               </>
             )}
-            {pageLinksText.productPage && (
+            {pageLinksText?.productPage && (
               <>
                 <Link href="/product" passHref>
                   <MUILink variant="body1" className={classes.footerLink}>
@@ -129,7 +128,7 @@ export default function Component(props) {
                 </Link>
               </>
             )}
-            {pageLinksText.newsPage && (
+            {pageLinksText?.newsPage && (
               <>
                 <Link href="/news" passHref>
                   <MUILink variant="body1" className={classes.footerLink}>
@@ -138,7 +137,7 @@ export default function Component(props) {
                 </Link>
               </>
             )}
-            {pageLinksText.contactPage && (
+            {pageLinksText?.contactPage && (
               <>
                 <Link href="/contact" passHref>
                   <MUILink variant="body1" className={classes.footerLink}>
@@ -166,7 +165,7 @@ export default function Component(props) {
             {copyright}
           </Typography>
           <Box ml="auto" className={classes.icons}>
-            {socialMedia.facebookUrl && (
+            {socialMedia?.facebookUrl && (
               <>
                 <a
                   href={socialMedia.facebookUrl}
@@ -180,7 +179,7 @@ export default function Component(props) {
                 </a>
               </>
             )}
-            {socialMedia.lineUrl && (
+            {socialMedia?.lineUrl && (
               <>
                 <a
                   href={socialMedia.lineUrl}
@@ -194,7 +193,7 @@ export default function Component(props) {
                 </a>
               </>
             )}
-            {socialMedia.instagramUrl && (
+            {socialMedia?.instagramUrl && (
               <>
                 <a
                   href={socialMedia.instagramUrl}
@@ -208,7 +207,7 @@ export default function Component(props) {
                 </a>
               </>
             )}
-            {socialMedia.linkedInUrl && (
+            {socialMedia?.linkedInUrl && (
               <>
                 <a
                   href={socialMedia.linkedInUrl}
