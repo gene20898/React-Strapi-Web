@@ -11,7 +11,7 @@ const meta = {};
 export default function About() {
   return (
     <main>
-      <Banner />
+      <Banner text1="text1" text2="text2" path="home/about" background="/nereus-assets/img/bg/pattern2.png"/>
 
       <AboutSection
         content={{

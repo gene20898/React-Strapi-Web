@@ -7,3 +7,14 @@ const nextConfig = {
     domains: ["localhost"],
   }
 }
+module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+    ]
+  },
+}

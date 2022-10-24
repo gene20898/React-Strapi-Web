@@ -14,7 +14,7 @@ import { useTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   section: {
-    backgroundImage: 'url("/nereus-assets/img/bg/pattern2.png")',
+    backgroundImage: props => `url("${props.background ? props.background : '/nereus-assets/img/bg/pattern2.png'}")`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundColor: theme.palette.primary.dark,
@@ -31,29 +31,37 @@ const useStyles = makeStyles((theme) => ({
 ));
 
 export default function Component(props) {
-  const classes = useStyles();
+  const {text1, text2, path} = props;
+  const paths = path.split('/');
+
+  const classes = useStyles(props);
   const theme = useTheme();
   return (
 <section className={classes.section}>
   <Container maxWidth="sm">
     <Box py={10} textAlign="center" color="common.white">
       <Typography variant="h3" component="h3" gutterBottom={true}>
-        <Typography color="secondary" variant="h3" component="span">Donec lacinia </Typography>
-        <Typography variant="h3" component="span">turpis non sapien lobortis pretium</Typography>
+        <Typography color="secondary" variant="h3" component="span">{text1}</Typography>
+        <Typography variant="h3" component="span">{text2}</Typography>
       </Typography>
       <Container maxWidth="sm">
         <Breadcrumbs aria-label="breadcrumb" className={classes.breadcrumb}>
-          <Link underline="hover" color="inherit" href="/">
-            Home
-          </Link>
-          <Link
-            underline="hover"
-            color="inherit"
-            href="/material-ui/getting-started/installation/"
-            >
-            Product
-          </Link>
-          <Typography>Category 1</Typography> 
+        { 
+          paths.map((item, index) => {
+            if(index < paths.length - 1) {
+              return (
+                <Link underline="hover" color="inherit" href={'/' + paths.slice(0, index + 1).join('/')}>
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </Link>
+              )
+            }
+            else {
+              return(
+              <Typography>{item.charAt(0).toUpperCase() + item.slice(1)}</Typography> 
+              )
+            }
+          })
+        }
         </Breadcrumbs>
       </Container>
     </Box>
