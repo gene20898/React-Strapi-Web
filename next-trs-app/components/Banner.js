@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Component(props) {
   const {text1, text2, path} = props;
-  const paths = path.split('/');
+  const paths = path?.split('/');
 
   const classes = useStyles(props);
   const theme = useTheme();
@@ -47,7 +47,7 @@ export default function Component(props) {
       <Container maxWidth="sm">
         <Breadcrumbs aria-label="breadcrumb" className={classes.breadcrumb}>
         { 
-          paths.map((item, index) => {
+          paths?.map((item, index) => {
             if(index < paths.length - 1) {
               return (
                 <Link underline="hover" color="inherit" href={'/' + paths.slice(0, index + 1).join('/')}>
