@@ -9,7 +9,9 @@ import HomePortfolio from '@components/home/HomePortfolio';
 import HomeCustomer from '@components/home/HomeCustomer';
 import Contacts from '@components/Contacts';
 
-export default function Home(props) {
+import { fetchAPI } from '@lib/api';
+
+export default function Home({ contact }) {
   return (
     <React.Fragment>
       <Metatags title="Home Page" description="Get the latest posts on our site" />
@@ -26,7 +28,22 @@ export default function Home(props) {
 
       <HomeCustomer />
 
-      <Contacts />
+      <Contacts contact={contact}/>
     </React.Fragment>
   );
+}
+
+export async function getStaticProps({ params }) {
+  const contactRes = await fetchAPI("/contact-form",{
+    populate: ["formImage","mapImage"]
+  });
+  if (!contactRes) {
+    return {
+      props: { contact: null },
+    };
+  } else {
+    return {
+      props: { contact: contactRes.data },
+    };
+  }
 }

@@ -33,52 +33,16 @@ export async function fetchAPI(path, urlParamsObject = {}, options = {}) {
     `/api${path}${queryString ? `?${queryString}` : ""}`
   )}`;
 
-  // Trigger API call
-  const response = await fetch(requestUrl, mergedOptions);
-  // Handle response
-  if (!response.ok) {
-    throw new Error(`An error occured please try again`);
+  try {
+    const response = await fetch(requestUrl, {
+      mergedOptions,
+    });
+    const data = await response.json();
+
+    if (!response.ok) {
+    }
+    return data;
+  } catch (e) {
+    console.error(e);
   }
-  const data = await response.json();
-  return data;
-}
-
-export async function getGlobalData() {
-  const urlParamsObject = {
-    populate: {
-      favicon: "*",
-      defaultSeo: {
-        populate: "*",
-      },
-      logo: {
-        populate: "*",
-      },
-      pageLinksText: {
-        populate: "*",
-      },
-      socialMedia: {
-        populate: "*",
-      },
-    },
-  };
-
-  const queryString = qs.stringify(urlParamsObject);
-  const requestUrl = `${getStrapiURL(
-    `/api/global${queryString ? `?${queryString}` : ""}`
-  )}`;
-
-  const headers = {
-    "Content-Type": "application/json",
-  }
-
-  const response = await fetch(requestUrl, {
-    headers
-  });
-
-   // Handle response
-   if (!response.ok) {
-    throw new Error(`An error occured please try again`);
-  }
-  const data = await response.json();
-  return data;
 }

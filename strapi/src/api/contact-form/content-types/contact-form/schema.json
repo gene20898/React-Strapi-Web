@@ -4,7 +4,8 @@
   "info": {
     "singularName": "contact-form",
     "pluralName": "contact-forms",
-    "displayName": "ContactForm"
+    "displayName": "ContactForm",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -32,41 +33,48 @@
       },
       "type": "text"
     },
-    "summitButton": {
-      "type": "component",
-      "repeatable": false,
+    "formImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "mapImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "submitButtonText": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "links.button",
+      "type": "string",
       "required": true
     },
-    "formImage": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false,
+    "termsAndPolicy": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
-      "required": true
-    },
-    "mapImage": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "type": "text",
       "required": true
     }
   }
