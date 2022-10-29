@@ -95,7 +95,7 @@ export default function Navbar(props) {
             <img
               src={getStrapiMedia(logo?.logo)}
               alt=""
-              width="150"
+              height="50"
               style={{
                 filter:
                   "invert(99%) sepia(98%) saturate(3978%) hue-rotate(189deg) brightness(120%) contrast(99%)",

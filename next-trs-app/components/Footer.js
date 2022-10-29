@@ -96,7 +96,7 @@ export default function Component(props) {
                 }}
                 src={getStrapiMedia(logo?.logo)}
                 alt=""
-                width="150"
+                height="50"
               />
             </MUILink>
           </Link>
