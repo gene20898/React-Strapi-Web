@@ -16,7 +16,7 @@ export default function News(props) {
   let currentPage = props.meta.pagination.page;
   const pageCount = props.meta.pagination.pageCount;
   const [articles, setArticles] = useState(props.articles);
-  const [articlesEnd, setArticlesEnd] = useState(false);
+  const [articlesEnd, setArticlesEnd] = useState(currentPage >= pageCount);
 
   const getMorePosts = async () => {
     currentPage++;
@@ -30,7 +30,6 @@ export default function News(props) {
     });
 
     const newArticles = articlesRes.data;
-
     setArticles(articles.concat(newArticles));
 
     if (currentPage >= pageCount) {
@@ -42,7 +41,7 @@ export default function News(props) {
       <Metatags title="Home Page" description="Get the latest posts on our site" />
       <Banner />
       <ArticleList articles={articles}/>
-      {!articlesEnd && (
+      { !articlesEnd && (
         <>
           <Box pb={10} display="flex" justifyContent="center" alignItems="center">
             <Button variant="outlined" color="primary" onClick={getMorePosts}>
