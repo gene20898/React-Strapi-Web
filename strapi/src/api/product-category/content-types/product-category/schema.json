@@ -53,15 +53,14 @@
         }
       }
     },
-    "Banner": {
-      "type": "component",
-      "repeatable": false,
+    "slug": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "items.banner",
+      "type": "uid",
+      "targetField": "title",
       "required": true
     }
   }

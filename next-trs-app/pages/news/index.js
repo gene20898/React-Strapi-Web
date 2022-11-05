@@ -39,7 +39,9 @@ export default function News(props) {
   return (
     <main>
       <Metatags title="Home Page" description="Get the latest posts on our site" />
+      
       <Banner />
+      
       <ArticleList articles={articles}/>
       { !articlesEnd && (
         <>

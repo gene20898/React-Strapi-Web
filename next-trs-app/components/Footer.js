@@ -167,12 +167,7 @@ export default function Component(props) {
           <Box ml="auto" className={classes.icons}>
             {socialMedia?.facebookUrl && (
               <>
-                <a
-                  href={socialMedia.facebookUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "inherit" }}
-                >
+                <a href={socialMedia.facebookUrl} target="_blank" rel="noopener noreferrer" style={{ color: "inherit" }}>
                   <IconButton color="inherit" aria-label="Facebook">
                     <FacebookIcon />
                   </IconButton>
@@ -181,26 +176,16 @@ export default function Component(props) {
             )}
             {socialMedia?.lineUrl && (
               <>
-                <a
-                  href={socialMedia.lineUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "inherit" }}
-                >
+                <a href={socialMedia.lineUrl} target="_blank" rel="noopener noreferrer" style={{ color: "inherit" }}>
                   <IconButton color="inherit" aria-label="Line">
-                    <img src="/LINE_logo.svg" />
+                    <img src="/LINE_logo_white.svg" />
                   </IconButton>
                 </a>
               </>
             )}
             {socialMedia?.instagramUrl && (
               <>
-                <a
-                  href={socialMedia.instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "inherit" }}
-                >
+                <a href={socialMedia.instagramUrl} target="_blank" rel="noopener noreferrer" style={{ color: "inherit" }}>
                   <IconButton color="inherit" aria-label="Instagram">
                     <InstagramIcon />
                   </IconButton>
@@ -209,12 +194,7 @@ export default function Component(props) {
             )}
             {socialMedia?.linkedInUrl && (
               <>
-                <a
-                  href={socialMedia.linkedInUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "inherit" }}
-                >
+                <a href={socialMedia.linkedInUrl} target="_blank" rel="noopener noreferrer" style={{ color: "inherit" }}>
                   <IconButton color="inherit" aria-label="LinkedIn">
                     <LinkedInIcon />
                   </IconButton>

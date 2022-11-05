@@ -1,8 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { emphasize, fade, darken, lighten } from '@material-ui/core/styles/colorManipulator';
-
-import clsx from 'clsx';
 
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
@@ -16,6 +13,8 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { useTheme } from '@material-ui/core/styles';
+
+import { getStrapiMedia } from '@lib/media';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -54,31 +53,26 @@ const useStyles = makeStyles((theme) => ({
 }
 ));
 
-export default function Component(props) {
+export default function ProductDetail({product, socialMedia}) {
   const classes = useStyles();
   const theme = useTheme();
+  const images = product?.image?.data;
   return (
 <section className={classes.section}>
   <Container>
     <Box className={classes.box}>
       <Grid container spacing={10}>
         <Grid pt={0} item xs={12} md={6}>
-          <CardMedia image="https://shuffle.dev/placeholders/pictures/office.jpg" className={classes.img}></CardMedia>
+          <CardMedia image={getStrapiMedia({data: images[0]})} className={classes.img}></CardMedia>
           <Box className={classes.spacing}></Box>
           <Hidden smDown>
             <Grid container spacing={2}>
-              <Grid item  md={3}>
-                <CardMedia image="https://shuffle.dev/placeholders/pictures/office.jpg" className={classes.imgPreview}></CardMedia>
-              </Grid>
-              <Grid item  md={3}>
-                <CardMedia image="https://shuffle.dev/placeholders/pictures/office.jpg" className={classes.imgPreview}></CardMedia>
-              </Grid>
-              <Grid item  md={3}>
-                <CardMedia image="https://shuffle.dev/placeholders/pictures/office.jpg" className={classes.imgPreview}></CardMedia>
-              </Grid>
-              <Grid item  md={3}>
-                <CardMedia image="https://shuffle.dev/placeholders/pictures/office.jpg" className={classes.imgPreview}></CardMedia>
-              </Grid>
+            {images?.map((image) => (
+                <Grid item md={3} key={image.id}>
+                  <CardMedia image={getStrapiMedia({data: image})} className={classes.imgPreview}></CardMedia>
+                </Grid>
+              ))
+            }
             </Grid>
           </Hidden>
         </Grid>
@@ -86,12 +80,12 @@ export default function Component(props) {
           <Box pb={8} display="flex" className={classes.halfLg}>
             <Container>
               <Box mb={0}>
-                <Typography variant="overline" color="textSecondary" paragraph={true}>Category</Typography>
-                <Typography variant="h2" component="h2" gutterBottom={true}>Product name</Typography>
+                <Typography variant="overline" color="textSecondary" paragraph={true}>{product?.product_category.data?.attributes.slug}</Typography>
+                <Typography variant="h2" component="h2" gutterBottom={true}>{product?.title}</Typography>
                 <Box className="Styled-my-4"></Box>
-                <Typography variant="subtitle1" paragraph={true} color="textSecondary">We're here to answer your questions and discuss the decentralized future of the internet. We're here to answer your questions and discuss the decentralized future of the internet. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi suscipit nisi obcaecati quia pariatur enim. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi suscipit nisi obcaecati quia pariatur enim.</Typography>  
+                <Typography variant="subtitle1" paragraph={true} color="textSecondary">{product?.description}</Typography>  
                 <hr />
-                <Typography variant="h5" color="textPrimary" paragraph={true}> $ xxx</Typography>
+                <Typography variant="h5" color="textPrimary" paragraph={true}>฿ {product?.price}</Typography>
               </Box>
             </Container>
           </Box> 
@@ -99,18 +93,42 @@ export default function Component(props) {
             <Container>
               <Typography variant="h5" component="h5" style={{color: theme.palette.primary.light}} >Share now</Typography>
               <Box ml="-13px" className={classes.icons}>
-                <IconButton color="secondary" aria-label="Facebook">
-                  <FacebookIcon />
-                </IconButton>
-                <IconButton color="secondary" aria-label="Twitter">
-                  <TwitterIcon />
-                </IconButton>
-                <IconButton color="secondary" aria-label="Instagram">
-                  <InstagramIcon />
-                </IconButton>
-                <IconButton color="secondary" aria-label="LinkedIn">
-                  <LinkedInIcon />
-                </IconButton>
+                {socialMedia?.facebookUrl && (
+                <>
+                  <a href={socialMedia.facebookUrl} target="_blank" rel="noopener noreferrer">
+                    <IconButton color="secondary" aria-label="Facebook">
+                      <FacebookIcon />
+                    </IconButton>
+                  </a>
+                </>
+                )}
+              {socialMedia?.lineUrl && (
+                <>
+                  <a href={socialMedia.lineUrl} target="_blank" rel="noopener noreferrer">
+                    <IconButton color="secondary" aria-label="Line">
+                      <img src="/LINE_logo_color.svg" />
+                    </IconButton>
+                  </a>
+                </>
+              )}
+              {socialMedia?.instagramUrl && (
+                <>
+                  <a href={socialMedia.instagramUrl} target="_blank" rel="noopener noreferrer">
+                    <IconButton color="secondary" aria-label="Instagram">
+                      <InstagramIcon />
+                    </IconButton>
+                  </a>
+                </>
+              )}
+              {socialMedia?.linkedInUrl && (
+                <>
+                  <a href={socialMedia.linkedInUrl.toString()} target="_blank" rel="noopener noreferrer">
+                    <IconButton color="secondary" aria-label="LinkedIn">
+                      <LinkedInIcon />
+                    </IconButton>
+                  </a>
+                </>
+              )}
               </Box>
             </Container>
           </Box>

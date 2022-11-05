@@ -50,7 +50,7 @@ export default function Component(props) {
           paths?.map((item, index) => {
             if(index < paths.length - 1) {
               return (
-                <Link underline="hover" color="inherit" href={'/' + paths.slice(0, index + 1).join('/')}>
+                <Link underline="hover" color="inherit" href={'/' + paths.slice(1, index + 1).join('/')}>
                   {item.charAt(0).toUpperCase() + item.slice(1)}
                 </Link>
               )
