@@ -20,7 +20,8 @@
     "react": "latest",
     "react-dom": "latest",
     "react-markdown": "^8.0.3",
-    "react-moment": "^1.1.2"
+    "react-moment": "^1.1.2",
+    "react-swipeable-views": "^0.14.0"
   },
   "devDependencies": {
     "eslint": "8.23.0",

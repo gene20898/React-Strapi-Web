@@ -1,5 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles';
+import { getStrapiMedia } from '@lib/media';
 
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
@@ -12,9 +14,8 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import { useTheme } from '@material-ui/core/styles';
 
-import { getStrapiMedia } from '@lib/media';
+import SwipeableViews from 'react-swipeable-views';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -33,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
     height: 500
   },
   imgPreview: {
-    height: 100
+    height: 100,
+    cursor: 'pointer'
   },
   halfLg: {
     [theme.breakpoints.up('lg')]: {
@@ -63,18 +65,7 @@ export default function ProductDetail({product, socialMedia}) {
     <Box className={classes.box}>
       <Grid container spacing={10}>
         <Grid pt={0} item xs={12} md={6}>
-          <CardMedia image={getStrapiMedia({data: images[0]})} className={classes.img}></CardMedia>
-          <Box className={classes.spacing}></Box>
-          <Hidden smDown>
-            <Grid container spacing={2}>
-            {images?.map((image) => (
-                <Grid item md={3} key={image.id}>
-                  <CardMedia image={getStrapiMedia({data: image})} className={classes.imgPreview}></CardMedia>
-                </Grid>
-              ))
-            }
-            </Grid>
-          </Hidden>
+        {imageCarousel(images,classes)}
         </Grid>
         <Grid item xs={12} md={6} >
           <Box pb={8} display="flex" className={classes.halfLg}>
@@ -89,7 +80,7 @@ export default function ProductDetail({product, socialMedia}) {
               </Box>
             </Container>
           </Box> 
-          <Box display="flex" className={classes.halfLg} alignSelf="flex-end">
+          {/* <Box display="flex" className={classes.halfLg} alignSelf="flex-end">
             <Container>
               <Typography variant="h5" component="h5" style={{color: theme.palette.primary.light}} >Share now</Typography>
               <Box ml="-13px" className={classes.icons}>
@@ -131,7 +122,7 @@ export default function ProductDetail({product, socialMedia}) {
               )}
               </Box>
             </Container>
-          </Box>
+          </Box> */}
 
         </Grid>
       </Grid>
@@ -139,4 +130,29 @@ export default function ProductDetail({product, socialMedia}) {
   </Container>
 </section>
   );
+}
+
+function imageCarousel(images, classes){
+  const [activeStep, setActiveStep] = React.useState(0);
+  return (
+  <>
+    <SwipeableViews index={activeStep} enableMouseEvents>
+      {images?.map((image) => (
+          <CardMedia image={getStrapiMedia({data: image})} className={classes.img}></CardMedia>
+        ))
+      }
+    </SwipeableViews>
+    <Box className={classes.spacing}></Box>
+    <Hidden smDown>
+      <Grid container spacing={2}>
+      {images?.map((image,index) => (
+          <Grid item md={3} key={image.id}>
+            <CardMedia image={getStrapiMedia({data: image})} className={classes.imgPreview} onClick={()=>{setActiveStep(index)}}></CardMedia>
+          </Grid>
+        ))
+      }
+      </Grid>
+    </Hidden>
+  </>
+  )
 }
