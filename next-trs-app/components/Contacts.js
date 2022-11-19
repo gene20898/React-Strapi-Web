@@ -72,7 +72,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Component({ contact }) {
   const classes = useStyles();
   const theme = useTheme();
-  console.log(contact);
   return (
     <section
       className={classes.section}

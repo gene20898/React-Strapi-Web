@@ -8,6 +8,9 @@ import ProductCategory from '@components/product/ProductCategory';
 import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next'
+
 import { fetchAPI } from '@lib/api';
 import { getStrapiMedia } from '@lib/media';
 
@@ -20,6 +23,8 @@ export default function Product(props) {
   const pageCount = props.meta.pagination.pageCount;
   const [categories, setCategories] = useState(props.categories);
   const [categoriesEnd, setCategoriesEnd] = useState(currentPage >= pageCount);
+
+  const { t } = useTranslation('common')
 
   const getMoreCategories = async () => {
     currentPage++;
@@ -59,8 +64,9 @@ export default function Product(props) {
   );
 }
 
-export async function getStaticProps() {
-  const categoriesRes = await fetchAPI("/product-categories", { 
+export async function getStaticProps({ locale }) {
+  const categoriesRes = await fetchAPI(`/product-categories`, { 
+    locale: locale,
     pagination: {
       page: 1,
       pageSize: PAGE_SIZE,
@@ -69,7 +75,8 @@ export async function getStaticProps() {
     populate: "thumbnail" 
   });
 
-  const productPageRes = await fetchAPI("/product-page", {
+  const productPageRes = await fetchAPI(`/product-page`, {
+    locale: locale,
     populate: {
       Banner: {
         populate: "*",
@@ -88,6 +95,7 @@ export async function getStaticProps() {
         categories: categoriesRes.data,
         productPage: productPageRes.data,
         meta: categoriesRes.meta,
+        ...await serverSideTranslations(locale, ['common']),
       }
     };
   }

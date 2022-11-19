@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { useRouter } from 'next/router'
 import Link from "next/link";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -23,6 +24,8 @@ import FilterHdrIcon from "@material-ui/icons/FilterHdr";
 import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
 import NotificationImportantIcon from "@material-ui/icons/NotificationImportant";
 
+import { useTranslation } from "next-i18next";
+
 import { GlobalContext } from "@pages/_app";
 import { getStrapiMedia } from "@lib/media";
 
@@ -41,10 +44,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   language: {
-    fontWeight: "400",
     marginRight: "20px",
     "& span": {
-      fontWeight: "600",
+      fontWeight: "500",
     },
   },
   primaryAction: {
@@ -75,6 +77,9 @@ export default function Navbar(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({ open: false });
   const { logo, pageLinksText, actionButtonText } = useContext(GlobalContext) || {};
+
+  const router = useRouter()
+  const { t } = useTranslation("common");
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -149,13 +154,11 @@ export default function Navbar(props) {
           </>
         )}
 
-        <Link href="/#" passHref>
-          <MUILink color="inherit" className={classes.language}>
-            <Typography variant="button" component="span">
-              TH
-            </Typography>
-            /EN
-          </MUILink>
+        <Link color="inherit"  locale={router.locale === 'en' ? 'th' : 'en'} href=''>
+          <Button color="inherit" className={classes.language}>
+            <Typography component="span">{t("current_locale")}</Typography>/
+            {t("other_locale")}
+          </Button>
         </Link>
 
         {actionButtonText && (
@@ -217,9 +220,7 @@ export default function Navbar(props) {
                     <ListItemIcon className={classes.iconWrapper}>
                       <LayersIcon className={classes.icon} />
                     </ListItemIcon>
-                    <ListItemText
-                      primary={pageLinksText.aboutPage}
-                    />
+                    <ListItemText primary={pageLinksText.aboutPage} />
                   </ListItem>
                 </Link>
               </>
@@ -322,4 +323,3 @@ export default function Navbar(props) {
     </AppBar>
   );
 }
-
