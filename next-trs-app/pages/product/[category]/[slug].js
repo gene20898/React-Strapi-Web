@@ -4,6 +4,8 @@ import { useContext } from "react";
 import Banner from '@components/Banner';
 import ProductDetail from '@collections/products/ProductDetail';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import { fetchAPI } from '@lib/api';
 import { getStrapiMedia } from '@lib/media';
 import { GlobalContext } from "@pages/_app";
@@ -45,7 +47,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   // Run API calls in parallel
   const productRes = await fetchAPI("/products", {
     filters: {
@@ -70,6 +72,7 @@ export async function getStaticProps({ params }) {
   if(!productPageRes || !productRes) {
     return {
       notFound: true,
+      ...await serverSideTranslations(locale, ['common']),
     }
   }
   else{
@@ -78,6 +81,7 @@ export async function getStaticProps({ params }) {
         product: productRes.data,
         banner: productPageRes.data.attributes.Banner,
         meta: productRes.meta,
+        ...await serverSideTranslations(locale, ['common']),
       }
     };
   }

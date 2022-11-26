@@ -8,6 +8,8 @@ import ArticleList from '@components/news/ArticleList';
 import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import { fetchAPI } from '@lib/api';
 
 const PAGE_SIZE = 9;
@@ -56,7 +58,7 @@ export default function News(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
   // Run API calls in parallel
   const articlesRes = await fetchAPI("/articles", { 
     pagination: {
@@ -70,6 +72,7 @@ export async function getStaticProps() {
   if(!articlesRes) {
     return {
       notFound: true,
+      ...await serverSideTranslations(locale, ['common']),
     }
   }
   else{
@@ -77,6 +80,7 @@ export async function getStaticProps() {
       props: {
         articles: articlesRes.data,
         meta: articlesRes.meta,
+        ...(await serverSideTranslations('en', ['common'])),
       }
     };
   }

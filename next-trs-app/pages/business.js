@@ -5,7 +5,6 @@ import Banner from '@components/Banner';
 import BusinessDetail from '@components/business/BusinessDetail';
 import BusinessPortfolio from '@components/business/BusinessPortfolio';
 
-
 export default function Business() {
   return (
     <main>

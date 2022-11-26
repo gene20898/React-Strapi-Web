@@ -9,9 +9,12 @@ import HomePortfolio from '@components/home/HomePortfolio';
 import HomeCustomer from '@components/home/HomeCustomer';
 import Contacts from '@components/Contacts';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import { fetchAPI } from '@lib/api';
 
 export default function Home({ contact }) {
+
   return (
     <React.Fragment>
       <Metatags title="Home Page" description="Get the latest posts on our site" />
@@ -33,17 +36,23 @@ export default function Home({ contact }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ locale  }) {
   const contactRes = await fetchAPI("/contact-form",{
     populate: ["formImage","mapImage"]
   });
   if (!contactRes) {
     return {
-      props: { contact: null },
+      props: { 
+        contact: null,
+        ...await serverSideTranslations(locale, ['common']),
+      }
     };
   } else {
     return {
-      props: { contact: contactRes.data },
+      props: { 
+        contact: contactRes.data,
+        ...await serverSideTranslations(locale, ['common']),
+      }
     };
   }
 }

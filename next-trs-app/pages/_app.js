@@ -8,7 +8,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '@styles/theme';
 import { appWithTranslation } from 'next-i18next';
 
-
 import { createContext } from "react";
 import { fetchAPI } from "@lib/api";
 import { getStrapiMedia } from "@lib/media";
@@ -76,9 +75,9 @@ MyApp.getInitialProps = async (ctx) => {
       },
     });
     // Pass the data to our page via props
-    return { ...appProps, global: globalRes.data,};
+    return { ...appProps, global: globalRes.data};
   } catch (err) {
-    return { ...appProps, global: null,};
+    return { ...appProps, global: null};
   }
 }
 

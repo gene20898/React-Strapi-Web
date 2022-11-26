@@ -6,6 +6,8 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 import { fetchAPI } from "@lib/api";
 import { getStrapiMedia } from "@lib/media";
 import ErrorPage from "next/error"
@@ -104,7 +106,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const articlesRes = await fetchAPI("/articles", {
     filters: {
       slug: params.slug,
@@ -118,11 +120,17 @@ export async function getStaticProps({ params }) {
 
   if (!articlesRes.data[0]) {
     return {
-      props: {article: null },
+      props: {
+        article: null,
+        ...await serverSideTranslations(locale, ['common']),
+      },
     };
   } else {
     return {
-      props: { article: articlesRes.data[0] },
+      props: { 
+        article: articlesRes.data[0],
+        ...await serverSideTranslations(locale, ['common']),
+      },      
     };
   }
 }

@@ -7,6 +7,8 @@ import ProductLists from '@components/product/ProductLists';
 import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import { fetchAPI } from '@lib/api';
 import { getStrapiMedia } from '@lib/media';
 
@@ -70,7 +72,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   // Run API calls in parallel
   const categoryRes = await fetchAPI("/product-categories", { 
     filters:{
@@ -91,6 +93,7 @@ export async function getStaticProps({ params }) {
   if(!productPageRes || !categoryRes) {
     return {
       notFound: true,
+      ...await serverSideTranslations(locale, ['common']),
     }
   }
   else{
@@ -100,6 +103,7 @@ export async function getStaticProps({ params }) {
         products: categoryRes.data[0]?.attributes.products.data,
         banner: productPageRes.data.attributes.Banner,
         meta: categoryRes.meta,
+        ...await serverSideTranslations(locale, ['common']),
       }
     };
   }

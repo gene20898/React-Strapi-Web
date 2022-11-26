@@ -5,6 +5,8 @@ import Banner from '@components/Banner';
 import ContactDetail from '@components/contact/ContactDetail';
 import Contacts from '@components/Contacts';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import { fetchAPI } from '@lib/api';
 
 const meta = {};
@@ -24,17 +26,21 @@ export default function Contact({ contact }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ locale }) {
   const contactRes = await fetchAPI("/contact-form",{
     populate: ["formImage","mapImage"]
   });
   if (!contactRes) {
     return {
-      props: { contact: null },
+      props: { contact: null,
+        ...await serverSideTranslations(locale, ['common']),
+      }
     };
   } else {
     return {
-      props: { contact: contactRes.data },
+      props: { contact: contactRes.data,
+        ...await serverSideTranslations(locale, ['common']),
+      }
     };
   }
 }
