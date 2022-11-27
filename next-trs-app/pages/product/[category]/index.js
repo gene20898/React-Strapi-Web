@@ -1,16 +1,16 @@
-import React from 'react';
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
 
-import Banner from '@components/Banner';
-import ProductLists from '@components/product/ProductLists';
+import Banner from "@components/Banner";
+import ProductLists from "@components/product/ProductLists";
 
-import Box from '@material-ui/core/Box';
-import { Button } from '@material-ui/core';
+import Box from "@material-ui/core/Box";
+import { Button } from "@material-ui/core";
 
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import { fetchAPI } from '@lib/api';
-import { getStrapiMedia } from '@lib/media';
+import { fetchAPI } from "@lib/api";
+import { getStrapiMedia } from "@lib/media";
 
 const PAGE_SIZE = 9;
 
@@ -25,13 +25,13 @@ export default function ProductList(props) {
 
   const getMorePosts = async () => {
     currentPage++;
-    const productsRes = await fetchAPI("/products", { 
+    const productsRes = await fetchAPI("/products", {
       pagination: {
         page: currentPage,
         pageSize: PAGE_SIZE,
       },
-      sort: ['createdAt', 'updatedAt'],
-      populate: "thumbnail" 
+      sort: ["createdAt", "updatedAt"],
+      populate: "thumbnail",
     });
 
     const newProducts = productsRes.data;
@@ -40,16 +40,26 @@ export default function ProductList(props) {
     if (currentPage >= pageCount) {
       setProductsEnd(true);
     }
-  }
+  };
   return (
     <main>
-      <Banner text1={banner.text.Text1} text2={banner.text.Text2}  path={`home/product/${category?.slug}`} background={getStrapiMedia(banner.image)}/>
+      <Banner
+        text1={banner.text.Text1}
+        text2={banner.text.Text2}
+        path={`home/product/${category?.slug}`}
+        background={getStrapiMedia(banner.image)}
+      />
 
-      <ProductLists category={category} products={products}/>
+      <ProductLists category={category} products={products} />
 
-      { !productsEnd && (
+      {!productsEnd && (
         <>
-          <Box pb={10} display="flex" justifyContent="center" alignItems="center">
+          <Box
+            pb={10}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
             <Button variant="outlined" color="primary" onClick={getMorePosts}>
               See more
             </Button>
@@ -60,52 +70,57 @@ export default function ProductList(props) {
   );
 }
 
-export async function getStaticPaths() {
-  const categoriesRes = await fetchAPI("/product-categories", { fields: ["slug"] });
+export async function getStaticPaths({ locales }) {
+  const categoriesRes = await fetchAPI("/product-categories", {
+    locale: locales,
+    fields: ["slug","locale"],
+  });
+
   return {
-    paths: categoriesRes.data.map((category) => ({
-      params: {
-        category: category.attributes.slug,
-      },
-    })),
+    paths: categoriesRes.data
+      .map((category) => ({
+        params: {
+          category: category.attributes.slug,
+        },
+        locale: category.attributes.locale,
+      })),
     fallback: "blocking",
   };
 }
 
 export async function getStaticProps({ params, locale }) {
   // Run API calls in parallel
-  const categoryRes = await fetchAPI("/product-categories", { 
-    filters:{
-      slug: params.category
+  const categoryRes = await fetchAPI("/product-categories", {
+    locale: locale,
+    filters: {
+      slug: params.category,
     },
-    populate: ["thumbnail","products","products.thumbnail"]
+    populate: ["thumbnail", "products", "products.thumbnail"],
   });
 
-
   const productPageRes = await fetchAPI("/product-page", {
+    locale: locale,
     populate: {
       Banner: {
         populate: "*",
-      }
-    }
-  });  
+      },
+    },
+  });
 
-  if(!productPageRes || !categoryRes) {
+  if (!productPageRes || !categoryRes) {
     return {
       notFound: true,
-      ...await serverSideTranslations(locale, ['common']),
-    }
-  }
-  else{
+      ...(await serverSideTranslations(locale, ["common"])),
+    };
+  } else {
     return {
       props: {
         category: categoryRes.data[0],
         products: categoryRes.data[0]?.attributes.products.data,
         banner: productPageRes.data.attributes.Banner,
         meta: categoryRes.meta,
-        ...await serverSideTranslations(locale, ['common']),
-      }
+        ...(await serverSideTranslations(locale, ["common"])),
+      },
     };
   }
 }
-

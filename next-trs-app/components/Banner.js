@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { emphasize, fade, darken, lighten } from '@material-ui/core/styles/colorManipulator';
 
 import clsx from 'clsx';
 
@@ -9,7 +8,6 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Link from '@material-ui/core/Link';
-import { useTheme } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +33,6 @@ export default function Component(props) {
   const paths = path?.split('/');
 
   const classes = useStyles(props);
-  const theme = useTheme();
   return (
 <section className={classes.section}>
   <Container maxWidth="sm">
@@ -50,14 +47,14 @@ export default function Component(props) {
           paths?.map((item, index) => {
             if(index < paths.length - 1) {
               return (
-                <Link underline="hover" color="inherit" href={'/' + paths.slice(1, index + 1).join('/')}>
+                <Link key={item} underline="hover" color="inherit" href={'/' + paths.slice(1, index + 1).join('/')}>
                   {item.charAt(0).toUpperCase() + item.slice(1)}
                 </Link>
               )
             }
             else {
               return(
-              <Typography>{item.charAt(0).toUpperCase() + item.slice(1)}</Typography> 
+              <Typography key={item}>{item.charAt(0).toUpperCase() + item.slice(1)}</Typography> 
               )
             }
           })
