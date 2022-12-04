@@ -41,7 +41,7 @@ export default function Component(props) {
         <Typography color="secondary" variant="h3" component="span">{text1}</Typography>
         <Typography variant="h3" component="span">{text2}</Typography>
       </Typography>
-      <Container maxWidth="sm">
+      {/* <Container maxWidth="sm">
         <Breadcrumbs aria-label="breadcrumb" className={classes.breadcrumb}>
         { 
           paths?.map((item, index) => {
@@ -60,7 +60,7 @@ export default function Component(props) {
           })
         }
         </Breadcrumbs>
-      </Container>
+      </Container> */}
     </Box>
   </Container>
 </section>
