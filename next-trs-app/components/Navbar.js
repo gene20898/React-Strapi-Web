@@ -154,7 +154,7 @@ export default function Navbar(props) {
           </>
         )}
 
-        <Link color="inherit"  locale={router.locale === 'en' ? 'th' : 'en'} href=''>
+        <Link color="inherit"  locale={router.locale === 'en' ? 'th' : 'en'} href='/'>
           <Button color="inherit" className={classes.language}>
             <Typography component="span">{t("current_locale")}</Typography>/
             {t("other_locale")}
