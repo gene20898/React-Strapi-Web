@@ -50,6 +50,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, locale }) {
   // Run API calls in parallel
   const productRes = await fetchAPI("/products", {
+    locale: locale,
     filters: {
       slug: params.slug,
     },
@@ -62,6 +63,7 @@ export async function getStaticProps({ params, locale }) {
   });
 
   const productPageRes = await fetchAPI("/product-page", {
+    locale: locale,
     populate: {
       Banner: {
         populate: "*",

@@ -108,6 +108,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, locale }) {
   const articlesRes = await fetchAPI("/articles", {
+    locale: locale,
     filters: {
       slug: params.slug,
     },

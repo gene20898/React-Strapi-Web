@@ -59,8 +59,8 @@ export default function Product(props) {
       />
 
       <Banner
-        text1={productPage.attributes.Banner.text.Text1}
-        text2={productPage.attributes.Banner.text.Text2}
+        text1={productPage?.attributes.Banner.text.Text1}
+        text2={productPage?.attributes.Banner.text.Text2}
         path="home/product"
         background={getStrapiMedia(productPage.attributes.Banner.image)}
       />
