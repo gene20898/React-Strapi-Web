@@ -28,6 +28,7 @@ export default function Contact({ contact }) {
 
 export async function getStaticProps({ locale }) {
   const contactRes = await fetchAPI("/contact-form",{
+    locale: locale,
     populate: ["formImage","mapImage"]
   });
   if (!contactRes) {

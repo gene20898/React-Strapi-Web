@@ -61,6 +61,7 @@ MyApp.getInitialProps = async (ctx) => {
   // Fetch global site settings from Strapi
   try{
     const globalRes = await fetchAPI("/global", {
+      locale: ctx.router.locale,
       populate: {
         favicon: "*",
         logo: {
