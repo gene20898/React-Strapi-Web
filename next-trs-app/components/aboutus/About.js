@@ -45,22 +45,20 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function HowItWorks(props) {
+export default function HowItWorks({ about }) {
   const classes = useStyles();
-  const theme = useTheme();
+
   const content = {
-    'badge': 'LOREM IPSUM',
-    'header-p1': 'Lorem ipsum dolor',
-    'header-p2': 'sit amet consectetur.',
-    'description': 'Suspendisse aliquam tellus ante, porttitor mattis diam eleifend quis. Pellentesque pulvinar commodo eros sit amet finibus. Aenean et ornare erat.',
-    'col1-header': 'Donec fermentum',
-    'col1-desc': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    'col2-header': 'Dolor sit amet',
-    'col2-desc': 'Donec id lorem eget purus maximus suscipit nec vitae quam.',
-    'col3-header': 'Aliquam pellentesque',
-    'col3-desc': 'Vivamus fringilla finibus tincidunt. Integer mollis pellentesque libero.',
-    'video': 'https://www.youtube.com/embed/OtDxDvCpPL4',
-    ...props.content
+    'badge': about?.badge || "",
+    'header-p1': about?.title || "",
+    'description': about?.description || "",
+    'col1-header': about?.keyTopic1?.title || "",
+    'col1-desc': about?.keyTopic1?.description || "",
+    'col2-header': about?.keyTopic2?.title || "",
+    'col2-desc': about?.keyTopic2?.description || "",
+    'col3-header': about?.keyTopic3?.title || "",
+    'col3-desc': about?.keyTopic3?.description || "",
+    'video': about?.videoUrl?.Url || "",
   };
 
   return (
