@@ -17,8 +17,6 @@ export default function Home({ contact }) {
 
   return (
     <React.Fragment>
-      <Metatags title="Home Page" description="Get the latest posts on our site" />
-
       <HomeBanner />
 
       <HomeBlog />

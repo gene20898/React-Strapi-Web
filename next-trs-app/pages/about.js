@@ -20,7 +20,7 @@ export default function About({ about, contact }) {
       <Banner
         text1={about?.attributes.Banner.text.Text1}
         text2={about?.attributes.Banner.text.Text2}
-        path="home/news"
+        path="home/about"
         background={getStrapiMedia(about?.attributes.Banner.image)}
       />
 

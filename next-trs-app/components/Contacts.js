@@ -1,11 +1,6 @@
 import React from "react";
-import { useContext } from "react";
-import Link from "next/link";
 
 import { makeStyles } from "@material-ui/core/styles";
-
-import clsx from "clsx";
-
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
@@ -19,7 +14,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import { useTheme } from "@material-ui/core/styles";
 
 import { getStrapiMedia } from "@lib/media";
-import { getStaticProps } from "@pages/news";
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -66,6 +60,22 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("lg")]: {
       paddingLeft: theme.spacing(6),
     },
+  },
+  cardRoot: {
+    position: "relative",
+    paddingTop: "56.25%",
+    margin: "auto",
+    overflow: "hidden",
+    height: "100vh",
+    borderRadius: 0,
+  },
+  cardMedia: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    border: 0,
   },
 }));
 
@@ -194,18 +204,13 @@ export default function Component({ contact }) {
         </Box>
       </Container>
       <div>
-      <img
-        style={{
-          height: "650px",
-          width: "100%",
-          objectFit: "cover",
-          margin: "0 !important",
-          padding: "0 !important",
-          display: "block"
-        }}
-        src={getStrapiMedia(contact?.attributes?.mapImage)}
-        alt=""
-      />
+        <Card className={classes.cardRoot}>
+          <CardMedia
+            className={classes.cardMedia}
+            component="iframe"
+            src={contact?.attributes?.mapLink}
+          />
+        </Card>
       </div>
     </section>
   );

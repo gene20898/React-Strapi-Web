@@ -46,19 +46,6 @@
         }
       }
     },
-    "mapImage": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "submitButtonText": {
       "pluginOptions": {
         "i18n": {
@@ -76,6 +63,16 @@
       },
       "type": "text",
       "required": true
+    },
+    "mapLink": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "text",
+      "required": true,
+      "default": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965973.185111136!2d95.50015662499999!3d13.897711099999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2fd4643fa2bc7%3A0xda6d449783090a30!2sThairuamsup%20Melt%20Metal%20Co.%2C%20Ltd.!5e0!3m2!1sen!2sth!4v1677948515300!5m2!1sen!2sth"
     }
   }
 }

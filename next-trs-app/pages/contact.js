@@ -14,8 +14,6 @@ const meta = {};
 export default function Contact({ contact }) {
   return (
     <main>
-      <Metatags title="Home Page" description="Get the latest posts on our site" />
-
       <Banner />
 
       <ContactDetail />

@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Component(props) {
   const classes = useStyles();
   return (
-<section className={classes.section} style={{ backgroundImage: 'url("nereus-assets/img/bg/pattern2.png")' }}>
+<section className={classes.section} style={{ backgroundImage: 'url("/nereus-assets/img/bg/pattern2.png")' }}>
   <Container maxWidth="md">
     <Box textAlign="center" color="common.white">
       <Typography variant="h2" component="h2" gutterBottom={true}>

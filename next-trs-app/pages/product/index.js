@@ -53,11 +53,6 @@ export default function Product(props) {
   };
   return (
     <main>
-      <Metatags
-        title="Home Page"
-        description="Get the latest posts on our site"
-      />
-
       <Banner
         text1={productPage?.attributes.Banner.text.Text1}
         text2={productPage?.attributes.Banner.text.Text2}

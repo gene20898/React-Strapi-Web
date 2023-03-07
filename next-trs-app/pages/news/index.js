@@ -46,8 +46,6 @@ export default function News(props) {
   }
   return (
     <main>
-      <Metatags title="Home Page" description="Get the latest posts on our site" />
-      
       <Banner
         text1={articlePage?.attributes.Banner.text.Text1}
         text2={articlePage?.attributes.Banner.text.Text2}
