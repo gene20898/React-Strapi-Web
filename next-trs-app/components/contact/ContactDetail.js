@@ -1,8 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { emphasize, fade, darken, lighten } from '@material-ui/core/styles/colorManipulator';
-
-import clsx from 'clsx';
 
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
@@ -18,7 +15,6 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import PhoneIcon from '@material-ui/icons/Phone';
-import { useTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   iconWrapper: {
@@ -32,28 +28,27 @@ const useStyles = makeStyles((theme) => ({
 }
 ));
 
-export default function Component(props) {
+export default function Component({ contactPage }) {
+  console.log(contactPage)
   const classes = useStyles();
-  const theme = useTheme();
   return (
 <section>
   <Container maxWidth="lg">
     <Box py={10}>
       <Box pb={8} textAlign="center">
         <Container maxWidth="sm">
-          <Typography variant="overline" color="textSecondary" paragraph={true}>LOREM IPSUM</Typography>
+          <Typography variant="overline" color="textSecondary" paragraph={true}>{contactPage.badge}</Typography>
           <Typography variant="h3" component="h2" gutterBottom={true}>
-            <Typography variant="h3" component="span" color="primary">Donec lacinia </Typography>
-            <Typography variant="h3" component="span">turpis non sapien lobortis pretium</Typography>
-          </Typography>
-          <Typography variant="subtitle1" color="textSecondary" paragraph={true}>Integer feugiat massa sapien, vitae tristique metus suscipit nec.</Typography>
+            <Typography variant="h3" component="span" color="primary">{contactPage.title} </Typography>
+            </Typography>
+          <Typography variant="subtitle1" color="textSecondary" paragraph={true}>{contactPage.description}</Typography>
         </Container>
       </Box>
       <Grid container spacing={6}>
         <Grid item xs={12} md={4}>
           <Box px={3}>
-            <Typography variant="h6" component="h2" gutterBottom={true}>Lorem ipsum dolor sit amet</Typography>
-            <Typography variant="subtitle1" color="textSecondary" paragraph={true}>Suspendisse aliquam tellus ante, porttitor mattis diam eleifend quis. Pellentesque pulvinar commodo eros sit amet finibus. Aenean et ornare erat.</Typography>
+            <Typography variant="h6" component="h2" gutterBottom={true}>{contactPage?.contactDescription?.title}</Typography>
+            <Typography variant="subtitle1" color="textSecondary" paragraph={true}>{contactPage?.contactDescription?.description}</Typography>
           </Box>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
@@ -65,9 +60,8 @@ export default function Component(props) {
                 </Avatar>
               </div>
               <Box ml={2}>
-                <Typography variant="h6" gutterBottom={true}>Address</Typography>
-                <Typography variant="body2" color="textSecondary">1652 Cordia Cir</Typography>
-                <Typography variant="body2" color="textSecondary">Newton, North Carolina(NC), 28658</Typography>
+                <Typography variant="h6" gutterBottom={true}>{contactPage?.address?.title}</Typography>
+                <Typography variant="body2" color="textSecondary">{contactPage?.address?.description}</Typography>
               </Box>
             </Box>
             <Box display="flex">
@@ -77,8 +71,8 @@ export default function Component(props) {
                 </Avatar>
               </div>
               <Box ml={2}>
-                <Typography variant="h6" gutterBottom={true}>Email</Typography>
-                <Typography variant="body2" color="textSecondary">hello@mui.dev</Typography>
+                <Typography variant="h6" gutterBottom={true}>{contactPage?.email?.title}</Typography>
+                <Typography variant="body2" color="textSecondary">{contactPage?.email?.description}</Typography>
               </Box>
             </Box>
           </Box>
@@ -92,7 +86,7 @@ export default function Component(props) {
               </Avatar>
             </div>
             <Box ml={2}>
-              <Typography variant="h6" gutterBottom={true}>Social Media</Typography>
+              <Typography variant="h6" gutterBottom={true}>{contactPage?.socialMediaTitle}</Typography>
               <IconButton href="#" color="inherit">
                 <FacebookIcon />
               </IconButton>
@@ -111,8 +105,8 @@ export default function Component(props) {
               </Avatar>
             </div>
             <Box ml={2}>
-              <Typography variant="h6" gutterBottom={true}>Phone</Typography>
-              <Typography variant="body2" color="textSecondary">(318) 285-9856</Typography>
+              <Typography variant="h6" gutterBottom={true}>{contactPage?.phone?.title}</Typography>
+              <Typography variant="body2" color="textSecondary">{contactPage?.phone?.description}</Typography>
             </Box>
           </Box>
           </Box>

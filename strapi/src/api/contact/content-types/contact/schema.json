@@ -103,8 +103,7 @@
           "localized": true
         }
       },
-      "component": "items.banner-text",
-      "required": true
+      "component": "items.banner"
     }
   }
 }
