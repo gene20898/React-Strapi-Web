@@ -102,7 +102,9 @@ export async function getStaticProps({ locale }) {
       },
     },
   });
-
+  console.log(categoriesRes)
+  console.log(productPageRes)
+  
   if (!categoriesRes || !productPageRes) {
     return {
       notFound: true,
@@ -113,7 +115,7 @@ export async function getStaticProps({ locale }) {
       props: {
         categories: categoriesRes.data,
         productPage: productPageRes.data,
-        meta: categoriesRes.meta,
+        meta: categoriesRes?.meta,
         locale: locale,
         ...(await serverSideTranslations(locale, ["common"])),
       },

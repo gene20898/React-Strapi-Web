@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_items_key_points",
+  "info": {
+    "displayName": "keyPoint",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "keyPoint1": {
+      "type": "text",
+      "required": true
+    },
+    "keyPoint2": {
+      "type": "text",
+      "required": false
+    },
+    "keyPoint3": {
+      "type": "text"
+    },
+    "keyPoint4": {
+      "type": "text"
+    }
+  }
+}

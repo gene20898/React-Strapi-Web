@@ -10,10 +10,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::article.article"
-    },
-    "textLink": {
-      "type": "string",
-      "required": true
     }
   }
 }

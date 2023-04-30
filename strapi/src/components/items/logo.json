@@ -6,10 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "text": {
-      "type": "string",
-      "required": false
-    },
     "logo": {
       "type": "media",
       "multiple": false,

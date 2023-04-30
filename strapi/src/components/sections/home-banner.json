@@ -8,7 +8,7 @@
   "attributes": {
     "Title": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "items.banner-text"
     },
     "Description": {
@@ -16,21 +16,21 @@
     },
     "contactButton": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "links.button"
     },
     "actionButton": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "links.button"
     },
     "bannerImage": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": false
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

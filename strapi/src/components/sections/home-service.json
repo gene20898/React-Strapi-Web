@@ -1,25 +1,35 @@
 {
   "collectionName": "components_sections_home_services",
   "info": {
-    "displayName": "homeService"
+    "displayName": "homeService",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "description1": {
-      "type": "text",
-      "required": true
-    },
-    "description2": {
-      "type": "text",
-      "required": true
-    },
-    "description3": {
-      "type": "text",
-      "required": true
-    },
-    "description4": {
+    "badge": {
       "type": "string",
       "required": true
+    },
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "keyPoints": {
+      "type": "component",
+      "repeatable": false,
+      "component": "items.key-point"
+    },
+    "background": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
