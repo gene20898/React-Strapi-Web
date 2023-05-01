@@ -38,7 +38,7 @@
       },
       "component": "sections.home-article"
     },
-    "highlightedArticle": {
+    "spotlightArticle": {
       "displayName": "highlightedArticle",
       "type": "component",
       "repeatable": false,

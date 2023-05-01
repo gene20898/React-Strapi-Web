@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => {
   return {
     section: {
       backgroundImage: (props) => {
-        console.log(props);
         return `url("${
           props.background
             ? props.background

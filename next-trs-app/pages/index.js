@@ -20,10 +20,10 @@ export default function Home({ homePageRes, contact }) {
         <HomeBanner content={homePageRes?.attributes.Banner} />
       )}
       {homePageRes?.attributes?.previewArticles && (
-        <HomeBlog blog={homePageRes?.attributes.previewArticles} />
+        <HomeBlog articles={homePageRes?.attributes.previewArticles} />
       )}
-      {homePageRes?.attributes?.highlightedArticle && (
-        <HighlightedBlog blog={homePageRes?.attributes.highlightedArticle} />
+      {homePageRes?.attributes?.spotlightArticle && (
+        <HighlightedBlog article={homePageRes?.attributes.spotlightArticle} />
       )}
       {homePageRes?.attributes?.services && (
         <HomeService service={homePageRes?.attributes.services} />
@@ -49,7 +49,7 @@ export async function getStaticProps({ locale }) {
           articles: { populate: "*" },
         },
       },
-      highlightedArticle: {
+      spotlightArticle: {
         populate: {
           article: { populate: "*" },
         },

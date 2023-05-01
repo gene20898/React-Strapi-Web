@@ -8,6 +8,8 @@ import Button from '@material-ui/core/Button';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { useTheme } from '@material-ui/core/styles';
 
+import { getStrapiMedia } from '@lib/media';
+
 const useStyles = makeStyles((theme) => ({
   paragraph: {
     marginBottom: theme.spacing(3),
@@ -39,18 +41,21 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Content(props) {
+export default function Content({article}) {
   const classes = useStyles();
   const theme = useTheme();
+
+  const markdown = article?.article?.data?.attributes?.contents[0]?.body
+  const match = markdown.match(/^(?!#).+$/gm)
+
+
   const content = {
-    'header-p1': 'Donec lacinia',
-    'header-p2': 'turpis non sapien lobortis pretium',
-    '02_paragraph1': 'Laudantium, unde aliquam sit accusantium a explicabo maiores doloribus aut, rerum accusamus alias saepe molestias ut suscipit voluptate voluptatibus repellendus fuga vero. Error delectus odit, numquam laborum.',
-    '02_paragraph2': 'Alias sunt voluptas ratione modi dolore nostrum debitis nihil. Nemo, ratione repellat quia doloremque perferendis fuga cumque ex corporis laborum distinctio dolorum deserunt voluptates ea architecto ab, esse omnis quas provident.',
-    '02_paragraph3': 'Necessitatibus porro suscipit consequatur, eum, odio rem sequi quisquam, libero fuga qui mollitia ullam temporibus. Repudiandae eum vitae iste odit esse, eligendi ipsum, aut ipsam provident unde quidem aperiam ad maiores et, illum corrupti incidunt quasi.',
-    '02_image': 'https://images.unsplash.com/photo-1493397212122-2b85dda8106b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80',
-    'primary-action': 'Learn more',
-    ...props.content
+    'header-p1': article?.article?.data?.attributes?.title,
+    '02_paragraph1': match?.[0]? match[0] : "",
+    '02_paragraph2': match?.[1]? match[1] : "" ,
+    '02_paragraph3': match?.[2]? match[2] : "",
+    '02_image': getStrapiMedia(article?.article?.data?.attributes?.thumbnail),
+    'primary-action': article?.seeMoreButton || 'Learn more',
   };
 
   return (
