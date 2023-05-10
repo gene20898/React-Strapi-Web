@@ -217,9 +217,9 @@ export default function Navbar(props) {
                     onClick={toggleDrawer(false)}
                     onKeyDown={toggleDrawer(false)}
                   >
-                    <ListItemIcon className={classes.iconWrapper}>
-                      <LayersIcon className={classes.icon} />
-                    </ListItemIcon>
+                    {/* <ListItemIcon className={classes.iconWrapper}> */}
+                      {/* <LayersIcon className={classes.icon} /> */}
+                    {/* </ListItemIcon> */}
                     <ListItemText primary={pageLinksText.aboutPage} />
                   </ListItem>
                 </Link>
@@ -234,9 +234,9 @@ export default function Navbar(props) {
                     onClick={toggleDrawer(false)}
                     onKeyDown={toggleDrawer(false)}
                   >
-                    <ListItemIcon className={classes.iconWrapper}>
+                    {/* <ListItemIcon className={classes.iconWrapper}>
                       <FilterHdrIcon className={classes.icon} />
-                    </ListItemIcon>
+                    </ListItemIcon> */}
                     <ListItemText primary={pageLinksText.businessPage} />
                   </ListItem>
                 </Link>
@@ -251,9 +251,9 @@ export default function Navbar(props) {
                     onClick={toggleDrawer(false)}
                     onKeyDown={toggleDrawer(false)}
                   >
-                    <ListItemIcon className={classes.iconWrapper}>
+                    {/* <ListItemIcon className={classes.iconWrapper}>
                       <DirectionsBusIcon className={classes.icon} />
-                    </ListItemIcon>
+                    </ListItemIcon> */}
                     <ListItemText primary={pageLinksText.productPage} />
                   </ListItem>
                 </Link>
@@ -268,9 +268,9 @@ export default function Navbar(props) {
                     onClick={toggleDrawer(false)}
                     onKeyDown={toggleDrawer(false)}
                   >
-                    <ListItemIcon className={classes.iconWrapper}>
+                    {/* <ListItemIcon className={classes.iconWrapper}>
                       <NotificationImportantIcon className={classes.icon} />
-                    </ListItemIcon>
+                    </ListItemIcon> */}
                     <ListItemText primary={pageLinksText.newsPage} />
                   </ListItem>
                 </Link>
@@ -285,9 +285,9 @@ export default function Navbar(props) {
                     onClick={toggleDrawer(false)}
                     onKeyDown={toggleDrawer(false)}
                   >
-                    <ListItemIcon className={classes.iconWrapper}>
+                    {/* <ListItemIcon className={classes.iconWrapper}>
                       <NotificationImportantIcon className={classes.icon} />
-                    </ListItemIcon>
+                    </ListItemIcon> */}
                     <ListItemText primary={pageLinksText.contactPage} />
                   </ListItem>
                 </Link>

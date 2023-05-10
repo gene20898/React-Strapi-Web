@@ -46,7 +46,7 @@ export default function Content({article}) {
   const theme = useTheme();
 
   const markdown = article?.article?.data?.attributes?.contents[0]?.body
-  const match = markdown.match(/^(?!#).+$/gm)
+  const match = markdown?.match(/^(?!#).+$/gm)?? []
 
 
   const content = {

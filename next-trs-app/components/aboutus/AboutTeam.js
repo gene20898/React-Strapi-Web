@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 
-import {getStrapiMedia} from '../../lib/media';
+import { getStrapiMedia } from "../../lib/media";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -21,23 +21,33 @@ const useStyles = makeStyles((theme) => ({
 const TeamMember = ({ member }) => {
   const classes = useStyles();
   return (
-    <Grid item xs={12} sm={6} md={3}>
-      <Avatar
-        alt=""
-        variant="rounded"
-        src={getStrapiMedia(member.Avatar)}
-        className={classes.avatar}
-      />
-      <Box display="flex" justifyContent="space-between">
-        <Typography variant="h6" component="h6" gutterBottom={true}>
-          {member.title}
+    <>
+      <Grid item xs={12} sm={6} md={3}>
+        <Avatar
+          alt=""
+          variant="rounded"
+          src={getStrapiMedia(member.Avatar)}
+          className={classes.avatar}
+        />
+        <Box>
+        <Box display="flex" justifyContent="space-between">
+          <Typography variant="h6" component="h6" gutterBottom={true}>
+            {member.title}
+          </Typography>
+          {/* <ArrowRightAltIcon /> */}
+        </Box>
+        <Typography
+          variant="body1"
+          color="textSecondary"
+          component="span"
+          textAlign="center"
+        >
+          {member.description}
         </Typography>
-        <ArrowRightAltIcon />
-      </Box>
-      <Typography variant="body1" color="textSecondary" component="span">
-        {member.description}
-      </Typography>
-    </Grid>
+        </Box>
+
+      </Grid>
+    </>
   );
 };
 
